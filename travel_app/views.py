@@ -16,7 +16,10 @@ def home(request):
         "blogs": blogs,
         "reviews": reviews,
     })
-
+def register(request):
+    return render(request, 'register.html')
+def contact_view(request):
+    return render(request, 'contact.html')
 
 # -------- Users --------
 class UserListCreateView(generics.ListCreateAPIView):

@@ -15,37 +15,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- ---------------------------header------------------- -->
-    <header>
-        <div class="container">
-            <div class="scrolled">
+    {% load static %}
+<header>
+    <div class="container">
+        <div class="scrolled">
             <nav>
+                <!-- Logo -->
                 <div class="logo">
-                    <img src="../static/img/Eqz7Dy-travel-world-transparent-logo.png" alt="Logo">
-                    <h6 style="color:white; font-family: 'Arial', sans-serif; margin-top:0px; margin-left: 10px; " >SEE THE WORLD</h6>
+                    <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
+                    <h6 style="color:white; font-family: 'Arial', sans-serif; margin-top:0px; margin-left: 10px;">SEE THE WORLD</h6>
                 </div>
-                <ul > 
-                     <div class="btn" style="display: none;">
-                        <i class="fa-solid fa-square-xmark"></i>
-                    </div>
-                    <li><a href="#" style="text-decoration: none;">Home</a></li>
-                    <li><a href="#about" >About</a></li>
+
+                <!-- Navigation Links -->
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#choose-place">Tours</a></li>
-                    <li><a href="#top destination">Destination</a></li>
-                    <li><a href="#Travel-blog">Gallery</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                    
+                    <li><a href="#top-destination">Destination</a></li>
+                    <li><a href="#travel-blog">Gallery</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
-                <div class="btn" style="display: none;">
+
+                <!-- Register Button -->
+                <div class="register-btn">
+                    <a href="{% url 'register' %}" class="btn-register">Register</a>
+                </div>
+
+                <!-- Mobile Menu Buttons -->
+                <div class="btn-close" style="display: none;">
+                    <i class="fa-solid fa-square-xmark"></i>
+                </div>
+                <div class="btn-open" style="display: none;">
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </nav>
         </div>
-        </div>
-    </header>
+    </div>
+</header>
+
     <!-- -------------------------showcase------------------------ -->
     <div id="carouselExampleDark" class="carousels carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -414,11 +428,11 @@
     </section>
     <!-- ---------------------BG video----------------------------------- -->
     <section id="Switzerland-valley">
-        <div class="video-bg">
-            <video autoplay muted loop preload="auto">
-                <source src="./img/bg vdo2.mp4">
-            </video>
-        </div>
+        {% load static %}
+<div class="video-bg">
+    <img src="{% static 'img/switzer land.webp' %}" alt="Background" style="width:100%; height:auto;">
+</div>
+
         <div class="container">
             <div class="video-content">
                 <h2>Switzerland valley</h2>
@@ -659,11 +673,7 @@
                     <div class="testimonails-content swiper-slide">
                         <p class="Lead">
                             <i class="fa-solid fa-quote-left"></i>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                            reprehenderit ducimus suscipit exercitationem corporis hic dolorem
-                            odio iusto, enim id quam deleniti culpa ut magni quod eaque ullam
-                            Ratione repellat officiis dolore vero impedit adipisci accusamus,
-                            provident quidem.
+                        Traveling solo as a woman was always a bit scary for me, but this journey changed everything.From safety to comfort, every detail was perfectly managed.I felt confident, relaxed, and truly enjoyed every moment of exploring new places.This experience made me fall in love with traveling again.
                             <i class="fa-solid fa-quote-right"></i>
                         </p>
                         <div class="test-img">
@@ -674,23 +684,19 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <p>Claudia Nalon</p>
+                            <p>Alina Ali</p>
+                            <p>Italy Tour</p>
                             <p class="guest">Guest Review</p>
                         </div>
                     </div>
                     <div class="testimonails-content swiper-slide">
                         <p class="Lead">
                             <i class="fa-solid fa-quote-left"></i>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                            reprehenderit ducimus suscipit exercitationem corporis hic dolorem
-                            odio iusto, enim id quam deleniti culpa ut magni quod eaque ullam
-                            Ratione repellat officiis dolore vero impedit adipisci accusamus,
-                            provident quidem.
+                            This trip gave us the perfect balance of adventure and relaxation.Exploring new places together brought us even closer.The arrangements were smooth, safe, and well-organized.We returned home with beautiful memories and countless photos.
                             <i class="fa-solid fa-quote-right"></i>
                         </p>
                         <div class="test-img">
-                            <img src="../static/img/08.jpg" alt="">
+                            <img src="../static/img/couple.jpg" alt="">
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-star"></i>
@@ -698,22 +704,19 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <p>Nalon White</p>
+                            <p>Mr. & Mrs. Usman </P>
+                            <p>Switzerland Tour</p>
                             <p class="guest">Guest Review</p>
                         </div>
                     </div>
                     <div class="testimonails-content swiper-slide">
                         <p class="Lead">
                             <i class="fa-solid fa-quote-left"></i>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                            reprehenderit ducimus suscipit exercitationem corporis hic dolorem
-                            odio iusto, enim id quam deleniti culpa ut magni quod eaque ullam
-                            Ratione repellat officiis dolore vero impedit adipisci accusamus,
-                            provident quidem.
+                           Traveling with family requires comfort, safety, and good planning, and this trip delivered it all.From kid-friendly arrangements to smooth travel schedules, everything was perfectly managed.We enjoyed quality time together without any stress.A truly memorable family experience.
                             <i class="fa-solid fa-quote-right"></i>
                         </p>
                         <div class="test-img">
-                            <img src="../static/img/06.jpeg" alt="">
+                            <img src="../static/img/family.jpg" alt="">
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-star"></i>
@@ -721,22 +724,20 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <p></p>
+                            <p>Family</p>
+                            <p>Maldvies Tour</p>
                             <p class="guest">Guest Review</p>
                         </div>
                     </div>
                     <div class="testimonails-content swiper-slide">
                         <p class="Lead">
                             <i class="fa-solid fa-quote-left"></i>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                            reprehenderit ducimus suscipit exercitationem corporis hic dolorem
-                            odio iusto, enim id quam deleniti culpa ut magni quod eaque ullam
-                            Ratione repellat officiis dolore vero impedit adipisci accusamus,
-                            provident quidem.
-                            <i class="fa-solid fa-quote-right"></i>
+                          Traveling solo was an amazing and confidence-building experience.Everything was well planned, safe, and easy to manage.I had the freedom to explore at my own pace while enjoying great support and guidance.This journey gave me unforgettable memories and a deeper love for traveling alone.
+                           <i class="fa-solid fa-quote-right"></i>
+                           
                         </p>
                         <div class="test-img">
-                            <img src="../static/img/03.jpeg" alt="">
+                            <img src="../static/img/one man.jpg" alt="">
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-star"></i>
@@ -744,22 +745,20 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <p></p>
+                            <p>Faisal Mehmood</p>
+                            <p>Turkey Tour</p>
                             <p class="guest">Guest Review</p>
                         </div>
                     </div>
                     <div class="testimonails-content swiper-slide">
                         <p class="Lead">
                             <i class="fa-solid fa-quote-left"></i>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                            reprehenderit ducimus suscipit exercitationem corporis hic dolorem
-                            odio iusto, enim id quam deleniti culpa ut magni quod eaque ullam
-                            Ratione repellat officiis dolore vero impedit adipisci accusamus,
-                            provident quidem.
+                           Traveling to Japan in our later years was a beautiful and peaceful experience. Everything was planned with great care, comfort, and patience. From smooth transportation to comfortable hotels and guided tours, we felt safe and well supported throughout the journey. The rich culture, stunning temples, and warm hospitality of Japan touched our hearts. This trip gave us unforgettable memories and proved that age is never a barrier to exploring the world together.
+
                             <i class="fa-solid fa-quote-right"></i>
                         </p>
                         <div class="test-img">
-                            <img src="../static/img/02.jpeg" alt="">
+                            <img src="../static/img/old couple.jpg" alt="">
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-star"></i>
@@ -767,7 +766,8 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <p></p>
+                            <p class="review-name"> Mr. & Mrs. Ahmed Khan</p>
+                            <p>Japan Tour</p>
                             <p class="guest">Guest Review</p>
                         </div>
                     </div>
@@ -776,91 +776,49 @@
         </div>
     </section>
     <!-- ------------------------------footer-------------------------------------- -->
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="ft-content">
-                    <div class="icon">
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
-                    <div class="content">
-                        <p class="Lead">Call us</p>
-                        <p>+1 654-875-0986</p>
-                    </div>
-                </div>
-                <div class="ft-content">
-                    <div class="icon">
-                        <i class="fa-solid fa-envelope-open"></i>
-                    </div>
-                    <div class="content">
-                        <p class="Lead">Write for us</p>
-                        <p>lalainfatima@gmail.com</p>
-                    </div>
-                </div>
+     <footer class="footer">
+    <div class="foot">
+        <div class="footer-content">
+          <div class="footlinks">
+    <h4>subscribe</h4>
+    <p class="Lead">
+        Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
+    </p>
+    <form action="#">
+        <input type="email" placeholder="Email Address"> 
+        <button type="button" class="button">Send</button>
+    </form>
+</div>
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+           
 
-                <div class="ft-content">
-                    <div class="icon">
-                        <i class="fa-solid fa-map-location"></i>
-                    </div>
-                    <div class="content">
-                        <p class="Lead">Address</p>
-                        <p>24 King St, SA 34567 USA</p>
-                    </div>
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/lalainfatima4" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/lalain-fatima/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/lalainfatima237" target="_blank"><i class='bx bxl-github'></i></a>
                 </div>
             </div>
-            <!-- ---------------------------footer content 2nd section------------------------------- -->
-            <div class="footer-wrapper">
-                <div class="about">
-                    <div class="img-logo">
-                        <img src="../static/img/pngwing.com.png" alt="">
-                    </div>
-                    <p class="Lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ab nostrum, necessitatibus quae
-                        laudantium officia obcaecati non blanditiis aspernatur illum.
-                    </p>
-                    <div class="social-icons">
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-pinterest"></i>
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    
-                </div>
-                <div class="Links">
-                    <h2>Quick Links</h2>    
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Tour</a></li>
-                        <li><a href="#">Destination</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>            
-                </div>
-                <div class="subscribe">
-                    <h2>subscribe</h2>
-                    <p class="Lead">
-                        Signup for our monthly blog Letter to stay informed about travel
-                        and tours.
-                    </p>
-                    <form action="#">
-                        <input type="text" placeholder="Email Address">
-                        <button type="button" class="button">Send</button>
-                    </form>
-
-                </div>
-            </div> 
-
-
-
+            
         </div>
+    </div>
 
-    </footer>
-
-
-
-
-
-
+    <div class="end">
+        <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
+    </div>
+</footer>
 
 
 
@@ -996,7 +954,7 @@
 
         });
         document.getElementById('searchForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault(); 
 
   var destination = document.getElementById('destination').value.toLowerCase();
   var duration = document.getElementById('duration').value.toLowerCase();

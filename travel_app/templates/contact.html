@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
+    <title>Contact Us</title>
+    <link rel="stylesheet"  href="../static/css/contact.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    
+</head>
+
+<body class="contactbody">
+
+        <section class="contact">
+            <div class="contact-form">
+                <h1>Contact <span>Us</span></h1>
+                <p>We are always out there to help you! Fill out the form given below and get a reply from us within 2 business days.</p>
+            <form action="">
+                <input type="text" name="myname" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your E-mail" required>
+                <input type="text" name="subject" placeholder="What brings you here?" required>
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Submit" class="submit-btn">
+            </form>
+            </div>
+            
+        </section>
+
+<!-- Footer -->
+
+    <footer class="footer">
+    <div class="foot">
+        <div class="footer-content">
+          <div class="footlinks">
+    <h4>subscribe</h4>
+    <p class="Lead">
+        Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
+    </p>
+    <form action="#">
+        <input type="email" placeholder="Email Address"> 
+        <button type="button" class="button">Send</button>
+    </form>
+</div>
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+           
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/lalainfatima4" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/lalain-fatima/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/lalainfatima237" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
