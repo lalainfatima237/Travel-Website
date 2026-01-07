@@ -30,23 +30,23 @@
                 <!-- Logo -->
                 <div class="logo">
                     <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
-                    <h6 style="color:white; font-family: 'Arial', sans-serif; margin-top:0px; margin-left: 10px;">SEE THE WORLD</h6>
-                </div>
+                    
+                </div>  
 
                 <!-- Navigation Links -->
-                <ul>
+               <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#choose-place">Tours</a></li>
                     <li><a href="#top-destination">Destination</a></li>
                     <li><a href="#travel-blog">Gallery</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
-                </ul>
+                </ul> 
 
                 <!-- Register Button -->
-                <div class="register-btn">
+               <div class="register-btn">
                     <a href="{% url 'register' %}" class="btn-register">Register</a>
-                </div>
+                </div> 
 
                 <!-- Mobile Menu Buttons -->
                 <div class="btn-close" style="display: none;">
@@ -61,7 +61,7 @@
 </header>
 
     <!-- -------------------------showcase------------------------ -->
-    <div id="carouselExampleDark" class="carousels carousel-dark slide" data-bs-ride="carousel">
+    {% comment %} <div id="carouselExampleDark" class="carousels carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -105,9 +105,19 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+      </div>  {% endcomment %}
+      <div class="banner">
+        <video src="../static/img/bgvid.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="title">
+            
+            <h2>Embrak on Your Next</h2>
+            <h3>Adventure With</h3>
+            <h3>Confidence</h3>
+            <p>Let us be your guide to discovering the world's wonders with ease and enjoyment. </p>
+        </div>
       </div>
     <!-- ---------------------------------Search location--------------------------- -->
-    <section id="Location-search">
+    {% comment %} <section id="Location-search">
         <div class="container">
             <div class="form-wrapper">
                     <form id="searchForm">
@@ -140,7 +150,7 @@
                 </form>
             </div>
         </div>
-    </section>
+    </section> {% endcomment %}
     <!-- ------------------------About---------------------------- -->
     <section id="about">
         <div class="container">
@@ -198,13 +208,13 @@
             <div class="choose-wrapper">
                 <div class="img-left-side">
                     <div class="lg-img">
-                        <img src="../static/img/istambul 1.jpg">
+                        <img src="../static/img/istambul1.jpg">
                         <div class="img-content">
-                            <h2>istambul Tours</h2>
+                            <h2>Istambul Tour</h2>
                             <div class="hidden-content">
                                 <span><i class="fa fa-clock"></i>10 Days</span>
                                 <span><i class="fa fa-user"></i>12+</span>
-                                <span><i class="fa fa-Location-dot"></i>istambul</span>
+                                <span><i class="fa fa-Location-dot"></i>Istambul</span>
                             </div>
                         </div>
                         <div class="price-label">
@@ -217,7 +227,7 @@
                     <div class="lg-img">
                         <img src="../static/img/dubai.jpg">
                         <div class="img-content">
-                            <h2>Dubai Tours</h2>
+                            <h2>Dubai Tour</h2>
                             <div class="hidden-content">
                                 <span><i class="fa fa-clock"></i>10 Days</span>
                                 <span><i class="fa fa-user"></i>12+</span>
@@ -235,11 +245,11 @@
                 <div class="lg-img">
                     <img src="../static/img/london 2.jpg" id="londonSection" class="destination-section">
                     <div class="img-content">
-                        <h2>london Tours</h2>
+                        <h2>London Tour</h2>
                         <div class="hidden-content">
                             <span><i class="fa fa-clock"></i>10 Days</span>
                             <span><i class="fa fa-user"></i>12+</span>
-                            <span><i class="fa fa-Location-dot"></i>london</span>
+                            <span><i class="fa fa-Location-dot"></i>London</span>
                         </div>
                     </div>
                     <div class="price-label">
@@ -249,7 +259,7 @@
                 <div class="lg-img">
                     <img src="../static/img/itlay.jpg">
                     <div class="img-content">
-                        <h2>Italy Tours</h2>
+                        <h2>Italy Tour</h2>
                         <div class="hidden-content">
                             <span><i class="fa fa-clock"></i>10 Days</span>
                             <span><i class="fa fa-user"></i>12+</span>
@@ -263,7 +273,7 @@
                 <div class="lg-img" id="greeceSection" class="destination-section">
                     <img src="../static/img/greece.jpg">
                     <div class="img-content">
-                        <h2>Greece Tours</h2>
+                        <h2>Greece Tour</h2>
                         <div class="hidden-content">
                             <span><i class="fa fa-clock"></i>10 Days</span>
                             <span><i class="fa fa-user"></i>12+</span>
@@ -323,7 +333,7 @@
                         <img src="../static/img/canada.jpg">
                         <div class="carousel-img-overlay">
                             <div class=" img-content">
-                                <h2><i class="fa-solid fa-location-dot"></i>canada</h2>
+                                <h2><i class="fa-solid fa-location-dot"></i>Canada</h2>
                                 <div class="hidden-content-carousel">
                                     <span>4 Tours packages</span>
                                     <a href="#">
@@ -357,7 +367,7 @@
                         <img src="../static/img/mal 2.jpg">
                         <div class="carousel-img-overlay">
                             <div class=" img-content">
-                                <h2><i class="fa-solid fa-location-dot"></i>maldvies</h2>
+                                <h2><i class="fa-solid fa-location-dot"></i>Maldvies</h2>
                                 <div class="hidden-content-carousel">
                                     <span>7 Tours packages</span>
                                     <a href="#">
@@ -828,6 +838,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@6.4.2/swiper-bundle.min.js"></script>
     <script src="../static/js/swiper.js"></script>
     <script>
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
 
         const swiper = new Swiper('.swiper', {
             slidesPerView: 1,
@@ -953,7 +971,7 @@
 
 
         });
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
+  document.getElementById('searchForm').addEventListener('submit', function(event) {
   event.preventDefault(); 
 
   var destination = document.getElementById('destination').value.toLowerCase();
