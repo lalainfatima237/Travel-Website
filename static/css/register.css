@@ -1,119 +1,141 @@
 :root {
-    --primary-color: #2095ae; 
+    --primary-color:  #2095ae; 
     --white-color: #ffffff;
+      background-color:#DDDDDD;
 }
-.register-body{
-    background-color: #101010;
-    background-repeat: no-repeat;
-    background-size: cover;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit',sans-serif;
 
 }
 
-.registration{
-    padding: 110px 30%;
-    height: 100%;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    background-color: #DDDDDD;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    flex-direction: column;
 }
 
-.register-form h1{
-    font-size: 80px;
+.form-container {
+    position: relative;
+    width: 350px;
+    height: 600px;
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+/* Blob Animation */
+.fluid-1 {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 350px;
+    z-index: 1;
+    transition: 0.6s ease-in-out;
+}
+
+.top-icons {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 10;
+    font-size: 26px;
     color: white;
+}
+
+.form-title {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    z-index: 10;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+/* Form Styling */
+.form-content {
+    position: relative;
+    margin-top: 250px;
+    padding: 0 30px;
+    z-index: 2;
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.input-box {
     margin-bottom: 20px;
 }
-.register-form h1 span{
-    color: #fc0050;
-}
 
-.register-form{
-    color: white;
-    font-size: 20px;
-}
-
-.register-form form input{
-    color: white;
-    padding: 17px;
-    background-color: #191919;
-    font-size: 20px;
-    outline: none;
+.input-field {
+    width: 100%;
+    padding: 12px 5px;
     border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    
-}
-.register-form h4{
-    font-size: 22px;
-    font-weight: 500;
-    margin-top: 20px;
-    color: #fc0050;
+    border-bottom: 2px solid #eee;
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
 }
 
-
-.register-form form .submitbtn{
-    display: inline-block;
-    background-color: #fc0050;
-    font-size: 27px;
-    font-weight: 600px;
-    border: 2px solid transparent;
-    border-radius: 60px;
-    width: 220px;
-    cursor: pointer;
-    transition: ease 0.30s;
+.input-field:focus {
+    border-bottom-color:  #2095ae;
 }
 
-.register-form form .submitbtn:hover{
-    border: 2px solid #fc0050;
-    background-color: transparent;
-    transform: scale(1.1);
-}
-
-
-.location-body{
-    background-color: #191919;
+.input-submit {
+    width: 100%;
+    padding: 12px;
+    background:  #2095ae;
     color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
 }
 
-.location-section{
-    padding: 110px;
-    height: 100%;
-    min-height: 100vh;
+.input-submit:hover {
+    background:  #2095ae;
+    box-shadow: 0 5px 15px rgba(32, 149, 174, 0.3);
 }
 
-.location-heading h1{
+.form-bottom-Links {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 14px;
 }
 
-.location-heading h1 span{
-    color: #fc0050;
-}
-
-.location-detail h1{
-    padding-top: 60px;
-    color: #fc0050;
-    font-size: 40px;
-}
-
-.location-detail p{
-    font-size: 20px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-
-.location-img img{
-    height: 400px;
-    width: 400px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.stars i{
-    font-size: 20px;
-    color: rgb(197, 167, 44);
+.form-bottom-Links a {
+    color: #2095ae;
+    text-decoration: none;
 }
 /* ------------------------------footer---------------------------- */
 
 .footer{
+    width: 100%;
     margin-top: 80px;
     background-color: rgb(21, 74, 74);
 }

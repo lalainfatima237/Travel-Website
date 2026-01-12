@@ -1,58 +1,67 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Here</title>
+    <title>Register</title>
     <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
-     <link rel="stylesheet"  href="../static/css/register.css">
+     <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
-<body class="register-body">
+<body>
 
-   
-
-    <section class="registration">
-        <div class="register-form">
-            <h1>Register <span>Here</span></h1>
-            <form action="" onsubmit="return validateform()">
-
-            <input type="text" name="myname1" placeholder="Name" id="name" required>
-            <input type="email" name="myemail" placeholder="Email-Id" id="" required>
-            <input type="tel" name="myphone" placeholder="Phone No." id="phonenum" required>
-            <input type="number" name="myage" placeholder="Age" id="" required>
-            <h4>Gender</h4>
-            <input type="radio" name="mygender" id="" required> Male &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-            <input type="radio" name="mygender" id=""> Female
-            <h4>Departure</h4>
-            <input type="datetime-local" name="departuredate" id="" required>
-            <h4>Return</h4>
-            <input type="datetime-local" name="returndate" id="" required>
-            <h4>Travel Destination</h4>
-            <input type="checkbox" name="td" id=""> Kashmir &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Istanbul &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Paris &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Bali &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Dubai &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Geneva &nbsp; &nbsp; &nbsp; 
-            <input type="checkbox" name="td" id=""> Port Blair &nbsp; &nbsp; &nbsp;
-            <input type="checkbox" name="td" id=""> Rome &nbsp; &nbsp; &nbsp;
-            <br> <br>
-            <h4>Package</h4>
-            <input type="radio" name="locations" id="loc1" required> Bronze &nbsp; &nbsp; &nbsp;
-            <input type="radio" name="locations" id="loc1"> Silver &nbsp; &nbsp; &nbsp;
-            <input type="radio" name="locations" id="loc1"> Gold &nbsp; &nbsp; &nbsp;
-            <input type="radio" name="locations" id="loc1"> Platinum &nbsp; &nbsp; &nbsp;
-            <br> <br> 
-            <input type="checkbox" name="t&c" id="" checked required> I accept the Terms & Conditions.
-            <br> <br> 
-            <input type="submit" value="Submit" class="submitbtn">
-
-        </form>
+ <div class="form-container" id="container">
+        <div class="fluid-container">
+            <img src="../static/img/fluid.svg" class="fluid-1" id="blob">
+            <br><br><br>
+            <div class="top-icons">
+                <i class='bx bx-log-in-circle' id="loginIcon"></i>
+                <i class="bx bx-user-plus icon-2" id="regIcon"></i>
+            </div>
+            <div class="form-title">
+                <span id="titleText">Welcome <br> Back</span>
+            </div>
         </div>
-    </section>
+
+        <div class="form-content" id="loginForm">
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" required>
+            </div>
+            <button class="input-submit">
+                <span>Sign In</span> <i class="bx bx-right-arrow-alt"></i>
+            </button>
+            <div class="form-bottom-Links">
+                <a href="#" onclick="showRegister()">Sign Up</a>
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+
+        <div class="form-content" id="registerForm" style="display: none;">
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Full Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" class="input-field" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" required>
+            </div>
+            <button class="input-submit">
+                <span>Register</span> <i class="bx bx-check"></i>
+            </button>
+            <div class="form-bottom-Links">
+                <a href="javascript:void(0)" onclick="showLogin()">Already have an account?</a>
+            </div>
+        </div>
+    </div>
+
 
 <!-- Footer -->
 
@@ -102,7 +111,40 @@
 
 <!-- Javascript -->
 <script>
-    function validateform(){ 
+
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+const blob = document.getElementById('fluid'); 
+const titleText = document.getElementById('titleText');
+
+
+function showRegister() {
+    
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
+    
+   
+    blob.style.transform = "translateX(20px) rotate(15deg) scale(1.1)";
+    blob.style.filter = "hue-rotate(45deg)"; 
+    
+  
+    titleText.innerHTML = "Create <br> Account";
+}
+
+
+function showLogin() {
+    
+    registerForm.style.display = "none";
+    loginForm.style.display = "block";
+    
+   
+    blob.style.transform = "translateX(0) rotate(0deg) scale(1)";
+    blob.style.filter = "hue-rotate(0deg)";
+    
+   
+    titleText.innerHTML = "Welcome <br> Back";
+}
+function validateform(){ 
         var tel=document.getElementById("phonenum").value;  
 
         if(tel.length<10){  

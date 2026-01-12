@@ -819,7 +819,28 @@ form input,select{
     background: white;
 }
 
+<<<<<<< Updated upstream
 
+=======
+/* .footlinks ul li{
+    margin-bottom: 15px;
+    list-style: none;
+   
+}
+
+.footlinks ul li a{
+    font-size: 17px;
+    color: #dddddd;
+    display: block;
+    transition: ease 0.30s;
+    text-decoration: none;
+}
+
+.footlinks ul li a:hover{
+    transform: translate(6px);
+    color: white;
+} */
+>>>>>>> Stashed changes
 .footlinks {
     text-align: left;
 }
@@ -937,6 +958,7 @@ form input,select{
     background: white;
     color: var(--primary-color);
 }
+<<<<<<< Updated upstream
 
 /* ----------------------Banner------------------------- */
  .banner {
@@ -1014,3 +1036,26 @@ form input,select{
 
 
 
+=======
+/* --------------------------Register---------------------------- */
+
+.register-btn {
+    margin-left: 1rem;
+}
+
+.btn-register {
+    background: #18baff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+
+>>>>>>> Stashed changes

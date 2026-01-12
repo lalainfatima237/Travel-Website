@@ -1,34 +1,171 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
-    <title>Contact Us</title>
-    <link rel="stylesheet"  href="../static/css/contact.css">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     
+    <style>
+        :root {
+            --primary-green: #2095ae; 
+        }
+        body { background-color: #f8f9fa; }
+        
+        /* Header Styling */
+        .contact-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+
+        /* Form Styling */
+        .contact-section {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .btn-send {
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 30px;
+            border: none;
+            float: left;
+
+        }
+        .btn-send:hover {
+            background-color:  #2095ae;
+            color: white;
+        }
+        .map-container {
+            height: 100%;
+            min-height: 400px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .footlinks ul li a:hover {
+            color:#2095ae;
+            padding-left: 5px; 
+        }
+        .social a:hover{
+           transform: scale(1.2);
+           color:#2095ae;
+        }
+        .footlinks button {
+    position: absolute; 
+    right: 10px;
+    padding: 0.5rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: #2095ae;
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footlinks button:hover {
+    background: white;
+      color:#2095ae;
+}
+
+
+
+    </style>
 </head>
+<body>
 
-<body class="contactbody">
+<div class="container my-5">
+   <div class="text-center mb-5">
+    <h1 class="fw-bold">
+         Let's Connect
+    </h1>
+    <p class="text-muted">
+        Planning your next adventure? We're just a message away!<br>
+        Reach out to us for travel tips, bookings, or any inquiries.
+    </p>
+</div>
 
-        <section class="contact">
-            <div class="contact-form">
-                <h1>Contact <span>Us</span></h1>
-                <p>We are always out there to help you! Fill out the form given below and get a reply from us within 2 business dayss.</p>
-            <form action="">
-                <input type="text" name="myname" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your E-mail" required>
-                <input type="text" name="subject" placeholder="What brings you here?" required>
-                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                <input type="submit" value="Submit" class="submit-btn">
-            </form>
+
+    <div class="row contact-section g-1">
+        <div class="col-lg-6">
+            <h4 class="contact-header">Contact Us</h4>
+            <div class="p-4 p-md-5">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" placeholder="First Name *">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
+                                <input type="text" class="form-control" placeholder="Mobile No *">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email ID *">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-send">
+                                Send Message <i class="bi bi-send-fill ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            
-        </section>
+        </div>
 
+        <div class="col-lg-6">
+            <h4 class="contact-header">Our Location</h4>
+            <div class="map-container ">
+               <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31778.9022456374!2d73.144000!3d33.528300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfa2fbbf0001%3A0x9d9e6c3147b0a1f6!2sDHA%20Phase%202%2C%20Islamabad%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1700000000000"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+</iframe>
+
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Footer -->
 
     <footer class="footer">
@@ -74,7 +211,5 @@
         <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
     </div>
 </footer>
-
-
 </body>
 </html>
