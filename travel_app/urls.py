@@ -6,6 +6,8 @@ urlpatterns = [
     path("", views.home, name="home"),
     path('register/', views.register, name='register'),
     path('contact/', views.contact_view, name='contact'),
+    path('packages/', views.packages_view, name='packages'),
+    path('explore/', views.explore, name='explore'),
 
     # Users
     path("users/", UserListCreateView.as_view(), name="user-list"),

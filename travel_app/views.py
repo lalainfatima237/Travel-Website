@@ -20,7 +20,10 @@ def register(request):
     return render(request, 'register.html')
 def contact_view(request):
     return render(request, 'contact.html')
-
+def packages_view(request):
+    return render(request, 'packages.html')
+def explore(request):
+    return render(request, 'explore.html')
 # -------- Users --------
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
