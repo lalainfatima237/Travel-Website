@@ -1,0 +1,1015 @@
+:root{
+    --primary-color: #2095ae;
+    --white-color:#fff;
+    --light-grey-color:#ddd;
+    /* --blue-color:#0f2454;  */
+    
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+html{
+    font-size: 16px;
+}
+/* ------------------------utiliy class-------------------- */
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    overflow: hidden ;
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+}
+
+.heading-normal-text{
+    font-size: 1rem;
+    letter-spacing: 6px;
+    color: var(--primary-color);
+
+}
+.headings{
+    font-size: 3rem;
+    font-family: "ubuntu";
+    letter-spacing: 2px;
+    padding-bottom: 2rem;
+}
+.headings span{
+    color: var(--primary-color)
+}
+.secondary-headings{
+    font-size: 2.5rem;
+    font-family: "ubuntu";
+    padding: 1rem 0;
+
+}
+.lead{
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: justify;
+}
+
+ .primary-btn {
+    width: 30%;
+    outline: none;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Arrow inside the button */
+.primary-btn i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover animation */
+.primary-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #0098b3;
+}
+
+.primary-btn:hover i {
+    transform: translateX(5px);
+}
+
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* ---------------------header---------------------- */
+header{
+    padding: 1rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+/* Logo */
+.logo img{
+    width: 60px;
+    height: auto;
+  
+}
+
+.logo{
+    flex: 0 0 auto;
+}
+
+/* Navbar */
+nav{
+    width: 100%;
+    padding: 10px 2%;
+    justify-content: space-between;
+
+}
+
+/* Nav Links */
+nav ul{
+    list-style: none;
+    gap: 10px;
+    margin:0 auto;
+    padding: 0;
+}
+
+nav ul li{
+    position: relative;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+nav ul li a:hover{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+}
+
+/* Auth Buttons Wrapper */
+.register-btn{
+    /* position: absolute;
+    top: 25px;
+    right: 30px;
+    z-index: 10; */
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Login Button */
+.btn-login{
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover{
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.25);
+}
+
+/* Register Button */
+.btn-register{
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 12px 25px rgba(20, 81, 151, 0.45);
+    background: linear-gradient(45deg, #5ee4ff, #2fb6d1);
+}
+
+.btn-register:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(45deg, #5ee4ff, #00d2fc);
+}
+
+
+
+
+.btn{
+    font-size: 1.3rem;
+    color: var(--white-color);
+    cursor: pointer;
+    display: none;
+}
+/* ----------------------showpic------------------------ */
+main{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+}
+.swiper{
+    height: 100vh;
+    
+}
+.slide-container{
+    width: 100%;
+}
+.slide-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.img-overlay{
+    position: absolute;
+    z-index:5;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    font-family: "ubuntu";
+    transform: translate(-50%,-50%);
+
+}
+.img-overlay p{
+    font-size: 2rem;
+    letter-spacing: 8px;
+    color: var(--white-color);
+    animation: animate 2s forwards;
+}
+.img-overlay h2{
+    font-size: 5rem;
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    animation: animate 2s forwards;
+    transition:all 1s ease-in-out ;
+}
+.overlay{
+    position: relative;
+}
+.overlay::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+@keyframes animate{
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.2;
+    }
+    70%{
+        opacity: 0.5;
+    }
+    70%{
+        opacity: 1;
+        transform: translateX(-0%);
+    } 
+
+}
+.img-overlay h2 span{
+    color: transparent;
+    -webkit-text-stroke: 1px var(--white-color);
+
+
+}
+/* ----------------------location search----------------------------- */
+#Location-search{
+    transform:translateY(-170%);
+}
+
+.form-wrapper{
+    background-color:rgba(0,0,0,0.6);
+    padding: 2rem;
+    width: 100%;
+}
+form{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.form-control{
+    width: 100%;
+}
+form input,select{
+    padding: 0.6rem;
+    outline: none;
+    font-size: 1.1rem;
+    border: 1px solid var(--light-grey-color);
+    color: #000;
+    margin: 0 0.4rem;
+    border-radius: 4px;
+}
+/* --------------------------------about------------------------------ */
+.about-content-wrapper{
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-column-gap: 3rem;
+    margin: 3rem 0;
+}
+.about-content-wrapper h2 span{
+    color: var(--primary-color);
+    font-family: "ubuntu";
+}
+.about-content-wrapper ul{
+    list-style: none;
+}
+.about-content-wrapper ul .icons{
+    display: flex;
+    align-items: center;
+     margin: 1rem 0;
+}
+.about-content-wrapper ul .icons i{
+    background: var(--primary-color);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--white-color);
+}
+.about-content-wrapper ul p{
+    margin-left: 1rem;
+
+}
+.agency-right-sides .img{
+    position: relative;
+}
+.agency-right-sides .img img{
+    width: 75%;
+    height: 50%;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+    transition: 0.5s ease-in;
+}
+.agency-right-sides .img::after{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 55px;
+    bottom: 0;
+    right: 0;
+    background: var(--primary-color);
+    width: 70%;
+    height: 100%;
+    z-index: -2;
+
+}
+.agency-right-sides .img img:hover{
+    transform: scale(0.95);
+}
+/* --------------------------choose place--------------- */
+#choose-place{
+    padding: 6rem 0;
+
+}
+.choose-wrapper{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2rem;
+}
+.lg-img{
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 96%;
+    width: 100%;
+}
+.lg-img:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.lg-img:hover{
+    transform: scale(1.02);
+}
+.img-content{
+    position: absolute;
+    bottom: 20px;
+}
+.img-content h2{
+    padding: 0 2rem;
+    color: var(--white-color);
+}
+.hidden-content{
+    padding: 0.5rem 2rem;
+    color: var(--white-color);
+    transform: translateY(120%);
+    transition: all 0.5s ease-in-out;
+}
+.hidden-content i{
+    padding: 0.2rem 0.2rem 0 0;
+}
+.lg-img:hover .hidden-content{
+    transform: translateY(0);
+} 
+.price-label{
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    transform: rotate(-90deg);
+}
+.row-wise-img{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    width: 100%;
+
+
+}
+#static-counter{
+    padding: 6rem 0;
+    background: url('../img/pexels-zhang-kaiyv-189833.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+#static-counter::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+.static-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2rem;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+.static-icons{
+    color: var(--white-color);
+    cursor: pointer;
+
+}
+.static-icons i{
+     font-size: 3rem;
+     padding: 2rem;
+     border-radius: 50%;
+     border: 2px solid var(--primary-color);
+     cursor: pointer ;
+     
+}
+.numbers{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    
+}
+.static-icons i:hover{
+    background:var(--primary-color);
+    border: none;
+    transform: translateY(-10%);
+}
+
+.book-now-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: #0d6efd;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.lg-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.lg-img:hover .book-now-btn {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.book-now-btn:hover {
+  background: #084298;
+  color: #fff;
+}
+
+/* ---------------------- top destination---------------------------------- */
+#top-destination{
+    padding: 6rem 0;
+
+}
+.top-destination-wrapper{
+    width: 100%;
+}
+.carousel{
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.carousel:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.carousel-img-overlay{
+    width: 100%;
+}
+.hidden-content-carousel{
+    padding: 0.5rem 2rem;
+    transform: translateY(120%);
+    transition: all 0.5s ease-in-out;
+    color: var(--white-color);
+}
+.carousel-img-overlay i{
+    padding-right: 1rem ;
+
+}
+.carousel:hover .hidden-content-carousel{
+    transform: translateY(0);
+}
+ .carousel:hover{
+    transform: scale(1.1);
+}
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0df1fd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 18px;
+  border: 1px solid white;
+  border-radius: 30px;
+}
+
+.explore-btn i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.explore-btn:hover {
+  color: white;
+   background: linear-gradient(45deg, #5ee4ff, #00d2fc);
+
+}
+
+.explore-btn:hover i {
+  transform: translateX(6px);
+}
+
+/* --------------------------bg video------------------ */
+#Switzerland-valley{
+    padding: 6rem 0;
+    position: relative;
+}
+#Switzerland-valley video{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    max-height:450px;
+}
+.video-bg{
+    position: relative;
+
+}
+.video-bg::before{
+    content: "";
+    position:absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+.video-content{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    color: var(--white-color);
+
+}
+.video-content h2{
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    color: var(--white-color);
+    font-family: "ubuntu";
+    margin-bottom: 1rem;
+
+
+}
+.video-content span{
+    font-size: 1.2rem;
+    margin: 0 1.5rem;
+}
+/* -----------------------tarvel countries------------------------ */
+#Travel-countries{
+    padding: 6rem 0;
+}
+.travel-countries-wrapper{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    width: 100%;
+    grid-gap: 2rem;
+}
+.countries-content{
+    margin-top: 2rem;
+}
+.countries-content ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.countries-content ul li{
+    margin: 1.5rem 0;
+}
+
+.countries-content ul li i{
+    margin: 0rem 0.5rem;
+
+}
+.slider-content-wrapper{
+    overflow:  hidden;
+   /* transform: scale(1.1);  */
+}
+
+.swiper-wrapper:hover{
+    transform: scale(1.1);
+}
+/* .carousel .swiper-slide{
+    height: 100%;
+    width: 100%;
+} */
+
+/* ---------------------------travel blog-------------------------- */
+#Travel-blog{
+    background: var(--blue-color);
+    padding: 6rem 0;
+}
+.blog h2{
+      color: var(--light-grey-color);
+}
+.blog{
+    position: relative;
+}
+.blog:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.blog-img-overlay{
+    width: 100%;
+}
+.blog-img-content{
+    position: absolute;
+    bottom: 20px;
+}
+.blog-img-content{
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    padding: 2rem 1rem;
+    transition: all 0.4s ease-in;
+    transform: translateY(-50%);
+    color: var(--white-color);
+}
+.blog:hover .blog-img-content{
+    transform: translateY(0%);
+}
+
+/* .blog-img-content h2 sp  11an{
+    color: var(--primary-color);
+} */
+.blog .price-label{
+    transform:rotate(360deg);
+}
+/* ----------------------------------- travel review---------------------- */
+#testimonials{
+    padding: 6rem 0;
+    width: 100%;
+    background: url("../img/bg\ 2.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+}
+#testimonials .headings{
+    color: var(--white-color);
+}
+.testimonails-wrapper{
+    overflow: hidden;
+    background: rgba(0,0,0,0.8);
+    color: var(--white-color);
+    padding: 2rem 6rem;
+}
+.testimonails-wrapper i{
+    color: var(--primary-color);
+}
+.testimonails-wrapper p{
+    text-align: center;
+    /* font-family:"ubuntu"; */
+}
+.test-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.test-img img{
+    width: 20%;
+    object-fit: cover;
+    margin: 1rem 0;
+    border-radius: 50%;
+}
+.icons{
+    text-align: center;
+}
+.guest{
+    font-size: 1.75rem ;
+}
+.Lead{
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+}
+/* --------------------------footer---------------------------- */
+.footer{
+    margin-top: 80px;
+    background-color: rgb(21, 74, 74);
+    
+}
+
+.foot{
+    padding: 20px 0;
+}
+
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.footlinks h4{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+.footlinks h4::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    left: 0;
+    bottom: -7px;
+    background: white;
+}
+
+.footlinks {
+    text-align: left;
+}
+
+.footlinks ul {
+    list-style: none;    
+    padding: 0;         
+    margin: 0;          
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.footlinks ul li {
+    margin-bottom: 12px;
+    margin-left: 0;      
+}
+
+.footlinks ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.footlinks ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; 
+}
+.social a{
+    font-size: 25px;
+    margin: 4px;
+    height: 40px;
+    width: 40px;
+    color: rgb(21, 74, 74);
+    background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: ease 0.30s;
+    text-decoration: none;
+}
+
+.social a:hover{
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.end{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 12px;
+}
+
+.end p{
+    font-size: 15px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+
+.footlinks h4 {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px; 
+    text-transform: capitalize;
+}
+
+.footlinks .Lead {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+.footlinks form {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    max-width: 400px; 
+}
+
+
+.footlinks input {
+    width: 100%; 
+    outline: none;
+    border: 1px solid var(--light-grey-color);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+}
+
+
+.footlinks button {
+    position: absolute; 
+    right: 15px;
+    padding: 0.5rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    cursor: pointer;
+    color: var(--white-color);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footlinks button:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+/* ----------------------Banner------------------------- */
+ .banner {
+    width: 100%;
+    height: 100vh;
+    position: relative; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.banner video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; 
+    transform: translate(-50%, -50%); 
+    object-fit: cover;
+    pointer-events: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.title {
+    width: 100%;
+    max-width: 800px; 
+    margin-top: 25vh; 
+    padding: 0 5%; 
+    text-align: left; 
+    color: white;
+    position: relative;
+    z-index: 5;
+    
+}
+
+.title h2,
+.title h3 {
+    font-size: 8vh; 
+    font-weight: 800;
+    line-height: 1.1; 
+    margin-bottom: 5px;
+    text-shadow: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+
+.title h2:hover,
+.title h3:hover {
+    color: transparent;
+    -webkit-text-stroke: 1.5px white; 
+}
+
+.title p {
+    font-size: 2.2vh;
+    margin-top: 20px;
+    max-width: 500px; 
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+

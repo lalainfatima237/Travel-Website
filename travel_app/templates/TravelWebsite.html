@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEE THE WORLD</title>
+    <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@6.4.2/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../static/css/respnsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ---------------------------header------------------- -->
+    {% load static %}
+<header>
+    <div class="container">
+        <div class="scrolled">
+            <nav class="d-flex align-items-center justify-content-between">
+
+                <!-- Logo -->
+                <div class="logo ">
+                    <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
+                </div>  
+
+                <!-- Navigation Links -->
+                <ul class="d-flex align-items-center mb-0">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#choose-place">Tours</a></li>
+                    <li><a href="#top-destination">Destination</a></li>
+                    <li><a href="#travel-blog">Gallery</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul> 
+
+                <!-- Auth Buttons -->
+                <div class="register-btn ">
+
+                    <!-- Login Button -->
+                    <a href="" class="btn-login">
+                        Login
+                    </a>
+
+                    <!-- Register Button -->
+                    <a href="{% url 'register' %}" class="btn-register">
+                        Register
+                    </a>
+                </div> 
+
+                <!-- Mobile Menu Buttons -->
+                <div class="btn-close d-none">
+                    <i class="fa-solid fa-square-xmark"></i>
+                </div>
+                <div class="btn-open d-none">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <!-- -------------------------showcase------------------------ -->
+      <div class="banner">
+        <video src="../static/img/bgvid.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="title">
+            
+            <h2>Embrak on Your Next</h2>
+            <h3>Adventure With</h3>
+            <h3>Confidence</h3>
+            <p>Let us be your guide to discovering the world's wonders with ease and enjoyment. </p>
+        </div>
+      </div>
+
+    <!-- ------------------------About---------------------------- -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content-wrapper">
+                <div class="agency-left-side">
+                    <p class="heading-normal-text">THE BEST TRAVEY AGENCY</P>
+                    <h2 class="headings">
+                        DISCOVER THE <span>WORLD</span>WITH OUR GUIDE
+                    </h2>
+                    <P class="lead">
+                       choose any country for your next adventure with our expert travel services. Our agency ensures a
+                       seamless experience, combining comfort, safety, and unforgettable memories.
+                    </p>
+                    <br>
+                    <p class="lead">
+                       From luxury hotels to unique local experiences, we curate every detail of your journey to make it exceptional and hassle-free.
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="icons">
+                                
+                                <i class="fa-solid fa-calendar"></i>
+                                <p>20 Years of Experience</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icons">
+                                
+                                <i class="fa-solid fa-arrows-turn-to-dots"></i>
+                                <p>150+ Tour Destination</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icons">
+                                <i class="fa-solid fa-phone"></i>
+                                <p>+92 3453452616</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="agency-right-sides">
+                    <div class="img">
+                        <img src="../static/img/about.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- --------------------------choose your place-------------------------------- -->
+    <section id="choose-place">
+        <div class=" text-center container">
+            <p class="heading-normal-text">CHOOSE YOUR PLACE</p>
+            <h2 class="headings">POPULAR <span>TOURS </span></h2>
+            <div class="choose-wrapper">
+                <div class="img-left-side">
+                    <div class="lg-img">
+                        <img src="../static/img/istambul1.jpg">
+                        <div class="img-content">
+                            <h2>Istambul Tour</h2>
+                           
+                        </div>
+                       
+                        <a href="{% url 'packages' %}" class="book-now-btn">
+    Book Now
+</a>
+                    </div>
+                </div>
+
+                <div class="img-left-side" id="dubaiSection" class="destination-section">
+                    <div class="lg-img">
+                        <img src="../static/img/dubai.jpg">
+                        <div class="img-content">
+                            <h2>Dubai Tour</h2>
+                         
+                        </div>
+                      
+                        <a href="{% url 'packages' %}" class="book-now-btn">
+    Book Now
+</a>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------row wise img-------------- -->
+            <div class="row-wise-img">
+                <div class="lg-img">
+                    <img src="../static/img/london 2.jpg" id="londonSection" class="destination-section">
+                    <div class="img-content">
+                        <h2>London Tour</h2>
+                        
+                    </div>
+                    
+                    <a href="{% url 'packages' %}" class="book-now-btn">
+    Book Now
+</a>
+                </div>
+                <div class="lg-img">
+                    <img src="../static/img/itlay.jpg">
+                    <div class="img-content">
+                        <h2>Italy Tour</h2>
+                        
+                    </div>
+                    
+                    <a href="{% url 'packages' %}" class="book-now-btn">
+    Book Now
+</a>
+                </div>
+                <div class="lg-img" id="greeceSection" class="destination-section">
+                    <img src="../static/img/greece.jpg">
+                    <div class="img-content">
+                        <h2>Greece Tour</h2>
+                       
+                    </div>
+                    
+                    <a href="{% url 'packages' %}" class="book-now-btn">
+    Book Now
+</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- -----------------------Static counter numbers------------------ -->
+    <section id="static-counter">
+    <div class="text-center container">
+        <div class="static-wrapper">
+
+            <div class="static-icons">
+                <i class="fa fa-plane-departure"></i>
+                <p class="numbers" data-ceil="600">0</p>
+                <p class="txt">Flight Bookings</p>
+            </div>
+
+            <div class="static-icons">
+                <i class="fa fa-home"></i>
+                <p class="numbers" data-ceil="250">0</p>
+                <p class="txt">Amazing Tours</p>
+            </div>
+
+            <div class="static-icons">
+                <i class="fa fa-ship"></i>
+                <p class="numbers" data-ceil="100">0</p>
+                <p class="txt">Cruises Booking</p>
+            </div>
+
+            <div class="static-icons">
+                <i class="fa fa-ticket"></i>
+                <p class="numbers" data-ceil="100">0</p>
+                <p class="txt">Ticket Bookings</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- -------------------------------Top Destination------------------------- -->
+    <section id="top destination">
+        <div class=" text-center container">
+            <p class="heading-normal-text">TOP DESTINATION</p>
+            <h2 class="headings">POPULAR <span>DESTINATION</span></h2>
+            <div class="top-destination-wrapper swiper2">
+                <div class="swiper-wrapper">
+                    <div class="carousel swiper-slide">
+                        <img src="../static/img/canada.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>Canada</h2>
+                                <div class="hidden-content-carousel">
+                                    <a href="{% url 'explore' %}" class="explore-btn">
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+                    <div class="carousel swiper-slide">
+                        <img src="../static/img/japan.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>Japan</h2>
+                                <div class="hidden-content-carousel">
+                                    
+                                    <a href="{% url 'explore' %}" class="explore-btn" >
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel swiper-slide" id="istambulSection" class="destination-section">
+                        <img src="../static/img/mal 2.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>Maldvies</h2>
+                                <div class="hidden-content-carousel">
+                                    
+                                    <a href="{% url 'explore' %}" class="explore-btn">
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="carousel swiper-slide">
+                        <img src="../static/img/india.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>India</h2>
+                                <div class="hidden-content-carousel">
+                                   
+                                    <a href="{% url 'explore' %}" class="explore-btn">
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+                    <div class="carousel swiper-slide">
+                        <img src="../static/img/makkha.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>Makkha</h2>
+                                <div class="hidden-content-carousel">
+                                  
+                                    <a href="{% url 'explore' %}" class="explore-btn">
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel swiper-slide" id="parisSection" class="destination-section">
+                        <img src="../static/img/paris.jpg">
+                        <div class="carousel-img-overlay">
+                            <div class=" img-content">
+                                <h2><i class="fa-solid fa-location-dot"></i>France</h2>
+                                <div class="hidden-content-carousel">
+                                   
+                                    <a href="{% url 'explore' %}" class="explore-btn">
+                                        <span>Explore</span><i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- ---------------------BG video----------------------------------- -->
+    <section id="Switzerland-valley">
+        {% load static %}
+<div class="video-bg">
+    <img src="{% static 'img/switzer land.webp' %}" alt="Background" style="width:100%; height:auto;">
+</div>
+
+        <div class="container">
+            <div class="video-content">
+                <h2>Switzerland valley</h2>
+                <span><i class="fa fa-clock"></i> 10 Days</span>
+                <span><i class="fa fa-user"></i> 12+</span>
+                <span><i class="fa fa-user"></i>Switzerland</span>
+            </div>
+        </div>
+    </section>
+    <!-- -------------------------------Travel countries-------------------------- -->
+    <section id="Travel-countries">
+        <div class="  text-center container">
+            <p class="heading-normal-text">MOST POPULAR</p>
+            <h2 class="headings">TRAVEL <SPan>COUNTRIES</SPan></h2>
+            <div class="travel-countries-wrapper">
+                <div class="countries-content">
+                    <h2 class="secondary-headings">ITALY, EROUPE</h2><br>
+                    <p class="lead">
+    Discover the timeless beauty of Italy, where history art, and culture
+    come alive at every corner. From the romantic streets of Rome to the scenic
+    canals of Venice, every destination tells a story of elegance and heritage.
+    
+</p>
+
+                    <ul>
+                        <div class="country-names">
+
+                            <li><i class="fa-solid fa-location-dot"></i>Rome</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Veince</li>
+                            <li><i class="fa-solid fa-location-dot"></i>San Marino</li>
+                        </div>
+
+                        <div class="country-names">
+                            <li><i class="fa-solid fa-location-dot"></i>Milan</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Florence</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Perma</li>
+                        </div>
+                        <div class="country-names">
+
+                            <li><i class="fa-solid fa-location-dot"></i>Verone</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Perugia</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Aosta</li>
+                        </div>
+                    </ul>
+                    <div class="text-start mt-4">
+    <button type="button" class="primary-btn">
+        ALL Tours <i class="fa fa-arrow-right"></i>
+    </button>
+</div>
+                </div>
+                <div class="slider-content-wrapper swiper3">
+                    <div class="swiper-wrapper ">
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/Rome.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>Rome</h2>
+                                   
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/venice.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>Veince</h2>
+                                   
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/san mario.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>San Marino</h2>
+                                   
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/milan.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>Milan</h2>
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/florence.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>Florence</h2>
+                                    
+                                </div>
+                            </div>
+                         
+                        </div>
+
+                        <div class="carousel swiper-slide">
+                            <img src="../static/img/perma.jpg">
+                            <div class="carousel-img-overlay">
+                                <div class=" img-content">
+                                    <h2><i class="fa-solid fa-location-dot"></i>Perma</h2>
+                                    
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- --------------------------------------Travel Blog------------------------------- -->
+    <section id="Travel-blog">
+    <div class="text-center container">
+        <p class="heading-normal-text">TRAVEL BLOG</p>
+        <h2 class="headings">TRAVEL <span>EXPERIENCE</span></h2>
+
+        <div class="top-destination-wrapper swiper2">
+            <div class="swiper-wrapper">
+
+                <!-- Blog Slide 1 -->
+                <div class="swiper-slide blog">
+                    <img src="../static/img/travel blog7.jpg" alt="Beach Tour">
+                    <div class="blog-img-overlay">
+                        <div class="blog-img-content">
+                            <h2>Beach Escapes</h2>
+                            <p class="Lead" style="font-size: 20px;">Sun, sand, and sea in Bali.</p>
+                            <a class="vdo" href="https://youtu.be/o9aaoiyJlcM?si=39dxCQs5D0F6MeUN"><i class="icon-play3"></i></a>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>05 Dec</p>
+                    </div>
+                </div>
+
+                <!-- Blog Slide 2 -->
+                <div class="swiper-slide blog">
+                    <img src="../static/img/travel blog2.jpg" alt="Mountain Trek">
+                    <div class="blog-img-overlay">
+                        <div class="blog-img-content">
+                            <h2>Mountain Treks</h2>
+                            <p class="Lead" style="font-size: 20px;">Adventure in the Himalayas.</p>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>12 Dec</p>
+                    </div>
+                </div>
+
+                <!-- Blog Slide 3 -->
+                <div class="swiper-slide blog">
+                    <img src="../static/img/travel blog6.jpg" alt="City Tours">
+                    <div class="blog-img-overlay">
+                        <div class="blog-img-content">
+                            <h2>City Highlights</h2>
+                            <p class="Lead" style="font-size: 20px;">Discover hidden city gems.</p>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>18 Dec</p>
+                    </div>
+                </div>
+
+                <!-- Blog Slide 4 -->
+                <div class="swiper-slide blog">
+                    <img src="../static/img/travel blog4.jpg" alt="Cultural Tours">
+                    <div class="blog-img-overlay">
+                        <div class="blog-img-content">
+                            <h2>Cultural Tours</h2>
+                            <p class="Lead" style="font-size: 20px;">Festivals and local flavors.</p>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>25 Dec</p>
+                    </div>
+                </div>
+
+                <!-- Blog Slide 5 -->
+                <div class="swiper-slide blog">
+                    <img src="../static/img/travel blog5.jpg" alt="Wildlife Safari">
+                    <div class="blog-img-overlay">
+                        <div class="blog-img-content">
+                            <h2>Wildlife Safari</h2>
+                            <p class="Lead" style="font-size: 20px;">Get close to nature.</p>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>05 Jan</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ----------------------------Reviews------------------------------- -->
+    <section id="testimonials">
+        <div class=" text-center container">
+            <p class="heading-normal-text">TRAVEL BLOG</p>
+            <h2 class="headings">TRAVEL EXPERIENCE</h2>
+            <div class="testimonails-wrapper swiper4">
+                <div class="swiper-wrapper">
+                    <div class="testimonails-content swiper-slide">
+                        <p class="Lead">
+                            <i class="fa-solid fa-quote-left"></i>
+                        Traveling solo as a woman was always a bit scary for me, but this journey changed everything.From safety to comfort, every detail was perfectly managed.I felt confident, relaxed, and truly enjoyed every moment of exploring new places.This experience made me fall in love with traveling again.
+                            <i class="fa-solid fa-quote-right"></i>
+                        </p>
+                        <div class="test-img">
+                            <img src="../static/img/02.jpg" alt="">
+                        </div>
+                        <div class="icons">
+                            ⭐⭐⭐⭐⭐
+                            <p>Alina Ali</p>
+                            <p>Italy Tour</p>
+                            <p class="guest">Guest Review</p>
+                        </div>
+                    </div>
+                    <div class="testimonails-content swiper-slide">
+                        <p class="Lead">
+                            <i class="fa-solid fa-quote-left"></i>
+                            This trip gave us the perfect balance of adventure and relaxation.Exploring new places together brought us even closer.The arrangements were smooth, safe, and well-organized.We returned home with beautiful memories and countless photos.
+                            <i class="fa-solid fa-quote-right"></i>
+                        </p>
+                        <div class="test-img">
+                            <img src="../static/img/couple.jpg" alt="">
+                        </div>
+                        <div class="icons">
+                             ⭐⭐⭐⭐⭐
+                            <p>Mr. & Mrs. Usman </P>
+                            <p>Switzerland Tour</p>
+                            <p class="guest">Guest Review</p>
+                        </div>
+                    </div>
+                    <div class="testimonails-content swiper-slide">
+                        <p class="Lead">
+                            <i class="fa-solid fa-quote-left"></i>
+                           Traveling with family requires comfort, safety, and good planning, and this trip delivered it all.From kid-friendly arrangements to smooth travel schedules, everything was perfectly managed.We enjoyed quality time together without any stress.A truly memorable family experience.
+                            <i class="fa-solid fa-quote-right"></i>
+                        </p>
+                        <div class="test-img">
+                            <img src="../static/img/family.jpg" alt="">
+                        </div>
+                        <div class="icons">
+                            ⭐⭐⭐⭐⭐
+                            <p>Family</p>
+                            <p>Maldvies Tour</p>
+                            <p class="guest">Guest Review</p>
+                        </div>
+                    </div>
+                    <div class="testimonails-content swiper-slide">
+                        <p class="Lead">
+                            <i class="fa-solid fa-quote-left"></i>
+                          Traveling solo was an amazing and confidence-building experience.Everything was well planned, safe, and easy to manage.I had the freedom to explore at my own pace while enjoying great support and guidance.This journey gave me unforgettable memories and a deeper love for traveling alone.
+                           <i class="fa-solid fa-quote-right"></i>
+                           
+                        </p>
+                        <div class="test-img">
+                            <img src="../static/img/one man.jpg" alt="">
+                        </div>
+                        <div class="icons">
+                             ⭐⭐⭐⭐⭐
+                            <p>Faisal Mehmood</p>
+                            <p>Turkey Tour</p>
+                            <p class="guest">Guest Review</p>
+                        </div>
+                    </div>
+                    <div class="testimonails-content swiper-slide">
+                        <p class="Lead">
+                            <i class="fa-solid fa-quote-left"></i>
+                           Traveling to Japan in our later years was a beautiful and peaceful experience. Everything was planned with great care, comfort, and patience. From smooth transportation to comfortable hotels and guided tours, we felt safe and well supported throughout the journey. The rich culture, stunning temples, and warm hospitality of Japan touched our hearts. This trip gave us unforgettable memories and proved that age is never a barrier to exploring the world together.
+
+                            <i class="fa-solid fa-quote-right"></i>
+                        </p>
+                        <div class="test-img">
+                            <img src="../static/img/old couple.jpg" alt="">
+                        </div>
+                        <div class="icons">
+                             ⭐⭐⭐⭐⭐
+                            <p class="review-name"> Mr. & Mrs. Ahmed Khan</p>
+                            <p>Japan Tour</p>
+                            <p class="guest">Guest Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------footer-------------------------------------- -->
+     <footer class="footer">
+    <div class="foot">
+        <div class="footer-content">
+          <div class="footlinks">
+    <h4>subscribe</h4>
+    <p class="Lead">
+        Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
+    </p>
+    <form action="#">
+        <input type="email" placeholder="Email Address"> 
+        <button type="button" class="button">Send</button>
+    </form>
+</div>
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+           
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/lalainfatima4" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/lalain-fatima/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/lalainfatima237" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
+    </div>
+</footer>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@6.4.2/swiper-bundle.min.js"></script>
+    <script src="../static/js/swiper.js"></script>
+    <script>
+       
+    function animateCounter(el) {
+    const target = +el.getAttribute("data-ceil");
+    let count = 0;
+    const speed = Math.ceil(target / 100); 
+    const interval = setInterval(() => {
+        count += speed;
+        if (count >= target) {
+            el.textContent = target;
+            clearInterval(interval);
+        } else {
+            el.textContent = count;
+        }
+    }, 20);
+}
+
+function triggerCounter() {
+    const counterSection = document.getElementById("static-counter");
+    const sectionPos = counterSection.getBoundingClientRect().top;
+    const screenPos = window.innerHeight / 1.2;
+
+    if (!triggerCounter.counted && sectionPos < screenPos) {
+        document.querySelectorAll(".numbers").forEach((el) => animateCounter(el));
+        triggerCounter.counted = true;
+    }
+}
+triggerCounter.counted = false;
+
+window.addEventListener("scroll", triggerCounter);
+
+window.addEventListener("load", triggerCounter);
+
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            effect: "creative",
+            creativeEffect: {
+                prev: {
+                    translate: [0, 0, -400],
+                },
+                next: {
+                    translate: ["100%", 0, 0],
+                },
+            },
+            loop: true,
+            direction: "horizontal",
+            autoplay: {
+                delay: 5000,
+            },
+            speed: 400,
+            spaceBetween: 100,
+        });
+        const swiper2 = new Swiper('.swiper2', {
+            slidesPerView: 3,
+            spaceBetween: 35,
+            slidesPerGroup: 1,
+            loop: true,
+            fade: true,
+            centerSlide: true,
+            grabcursor: true,
+            loopfiLLGroupwithBLank: true,
+
+
+            autoplay: {
+                delay: 5000,
+            },
+            speed: 400,
+            spaceBetween: 100,
+
+        });
+        const countersEL = document.querySelectorAll(".numbers");
+        countersEL.forEach((counters) => {
+            counters.textContent = 0;
+            increamentcounters();
+            function increamentcounters() {
+                let currentNum = +counters.textContent;
+                const dataceiL = counters.getAttribute("data-ceil")
+                const increament = dataceiL / 25;
+                currentNum = Math.ceil(currentNum + increament);
+                if (currentNum < dataceiL) {
+                    counters.textContent = currentNum;
+
+                    setTimeout(increamentcounters, 70)
+
+                }
+
+                else {
+                    counters.textContent = dataceiL;
+
+                }
+
+            }
+        });
+
+        const swiper3 = new Swiper('.swiper3', {
+            slidesPerView: 2,
+            spaceBetween: 35,
+            slidesPerGroup: 1,
+            loop: true,
+            fade: true,
+            centerSlide: true,
+            grabcursor: true,
+            loopfiLLGroupwithBLank: true,
+
+
+            autoplay: {
+                delay: 5000,
+            },
+            speed: 400,
+            spaceBetween: 100,
+
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+
+                },
+                968: {
+                    slidesPerView: 2,
+                },
+            },
+        });
+
+        const swiper4 = new Swiper('.swiper4', {
+            slidesPerView: 1,
+            spaceBetween: 95,
+            slidesPerGroup: 1,
+            loop: true,
+            fade: true,
+            centerSlide: true,
+            grabcursor: true,
+            loopfiLLGroupwithBLank: true,
+
+
+            autoplay: {
+                delay: 5000,
+            },
+            speed: 400,
+            spaceBetween: 100,
+
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 1,
+
+                },
+                968: {
+                    slidesPerView: 1,
+                },
+            },
+
+
+        });
+  document.getElementById('searchForm').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  var destination = document.getElementById('destination').value.toLowerCase();
+  var duration = document.getElementById('duration').value.toLowerCase();
+
+  var selectedSection = document.getElementById(destination + 'Section');
+
+  if (selectedSection) {
+    selectedSection.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+function subscribe(){
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    var name = document.getElementById("name").value;
+    alert("Your email sent successfully!\n\nName:" + name  + "\nEmail:" + email + "\nMessage:" + message);
+}
+
+    </script>
+</body>
+
+</html>
