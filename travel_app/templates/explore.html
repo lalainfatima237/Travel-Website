@@ -121,12 +121,24 @@
     margin-top: 40px;
     margin-bottom: 10px;
 }
-
+.location-img {
+    display: flex;
+    gap: 200px;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
 .location-img img{
-    height: 400px;
+    height: 600px;
     width: 400px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    {% comment %} margin-top: 30px; {% endcomment %}
+    {% comment %} margin-bottom: 30px; {% endcomment %}
+    object-fit: cover;
+    border-radius: 10px;
+}
+.location-img h3 {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .stars i{
@@ -155,9 +167,15 @@
 
 Geographically, Canada is famous for its vast forests, crystal-clear lakes, snow-covered mountains, and stunning waterfalls. One of the most popular natural attractions is Niagara Falls, which attracts millions of tourists every year. Major cities like Toronto, Vancouver, and Montreal offer a perfect mix of modern lifestyle and cultural diversity. Canada is an ideal destination for travelers who love nature, adventure, safety, and multicultural experiences.</p>
     <div class="location-img">
+        <div class="img-box">
         <img src="../static/img/c1.jpg" alt="">
         <h3 >Peace Tower</h3>
     </div>
+    <div class="img-box">
+        <img src="../static/img/c6.JPG" alt="">
+        <h3>The Forks</h3>
+    </div>
+
  </div>
 
  <div class="location-detail" id="istanbul">
@@ -173,10 +191,14 @@ Geographically, Canada is famous for its vast forests, crystal-clear lakes, snow
 
 The country is made up of thousands of islands and is surrounded by the Pacific Ocean. Japan is famous for its beautiful landscapes, including mountains, forests, and volcanic areas such as Mount Fuji. Cities like Tokyo and Osaka represent modern life, while Kyoto preserves traditional temples and cultural heritage. Japan attracts travelers with its cherry blossom season, clean cities, unique culture, and technological innovation.</p>
     <div class="location-img">
-       <img src="../static/img/Himeji Castle.jpg" alt="">
-       <h3>Himeji Castle</h3>
-       <img src="../static/img/Senso-ji Temple.jpg" alt="">
-       <h3>Sensō-ji Temple</h3>
+     <div class="img-box">
+        <img src="../static/img/Himeji Castle.jpg" alt="">
+        <h3>Himeji Castle</h3>
+    </div>
+
+    <div class="img-box">
+        <img src="../static/img/Senso-ji Temple.jpg" alt="">
+        <h3>Sensō-ji Temple</h3>
     </div>
  </div>
 
@@ -193,12 +215,13 @@ The country is made up of thousands of islands and is surrounded by the Pacific 
 
 Maldives is especially famous for its overwater villas, coral reefs, and marine life, making it a perfect destination for honeymooners and beach lovers. The peaceful environment, warm climate, and natural beauty attract visitors from around the world. It is an ideal place for relaxation, snorkeling, diving, and enjoying a calm island lifestyle.</p>
     <div class="location-img">
-        
+        <div class="img-box">
         <img src="../static/img/maldivesa island.jpg" alt="">
         <h3>Maldvies Island</h3>
+        </div>
+        <div class="img-box">
         <img src="../static/img/Tsunami Monument.webp" alt="">
-        <h3>Tsunami Monument</h3>
-        
+        <h3>Tsunami Monument</h3> 
     </div>
  </div>
 
@@ -215,9 +238,11 @@ Maldives is especially famous for its overwater villas, coral reefs, and marine 
 
 India is famous for its cultural diversity, with hundreds of languages, traditions, and religions coexisting together. From the snow-covered Himalayas in the north to tropical beaches in the south, India offers a wide range of landscapes. Popular attractions such as the Taj Mahal, Jaipur’s forts, and Kerala’s backwaters make India a unique destination for travelers interested in history, culture, spirituality, and colorful experiences.</p>
     <div class="location-img">
-        
+        <div class="img-box">
          <img src="../static/img/taj mahal.jpg" alt="">
          <h3>Taj Mahal</h3>
+        </div>
+        <div class="img-box">
         <img src="../static/img/taj palace.jpg" alt="">
         <h3>Taj Palace</h3>
     </div>
@@ -236,9 +261,11 @@ India is famous for its cultural diversity, with hundreds of languages, traditio
 
 Historically, Makkah has been a place of worship since the time of Prophet Ibrahim (A.S). Every year, millions of Muslims visit the city to perform Hajj and Umrah, fulfilling one of the most important religious duties in Islam. The city is not a tourist destination in the traditional sense, but rather a place of peace, faith, and spiritual reflection. Entry to Makkah is strictly allowed only for Muslims.</p>
     <div class="location-img">
-        
+        <div class="img-box">
         <img src="../static/img/masjid al haram.jpg" alt="">
-        <h3>Masjid al Haram</h3>
+         <h3>Masjid al Haram</h3>
+        </div>
+        <div class="img-box">
         <img src="../static/img/clock tower.jpg" alt="">
         <h3>Clock Tower</3>
     </div>
@@ -256,8 +283,11 @@ Historically, Makkah has been a place of worship since the time of Prophet Ibrah
 
 The country offers a diverse landscape that includes beautiful countryside, long coastlines, and the famous Alps mountains. Paris, the capital city, is one of the most visited cities in the world and is home to iconic landmarks such as the Eiffel Tower and the Louvre Museum. France is a dream destination for travelers who enjoy history, fine food, art museums, and romantic city life.</p>
     <div class="location-img">
+        <div class="img-box">
         <img src="../static/img/f2.jpg" alt="">
         <h3>Place de la République</h3>
+        </div>
+        <div class="img-box">
         <img src="../static/img/f1.jpg" alt="">
         <h3>Sanctuary of Our Lady of Lourdes</h3>
     </div>

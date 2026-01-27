@@ -24,6 +24,8 @@ def packages_view(request):
     return render(request, 'packages.html')
 def explore(request):
     return render(request, 'explore.html')
+def Login(request):
+    return render(request,'login.html')
 # -------- Users --------
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()
