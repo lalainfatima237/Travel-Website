@@ -1,0 +1,290 @@
+:root {
+    --primary-color:  #2095ae; 
+    --white-color: #ffffff;
+      background-color:#DDDDDD;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit',sans-serif;
+
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #DDDDDD;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    flex-direction: column;
+}
+
+.form-container {
+    position: relative;
+    width: 350px;
+    height: 600px;
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+/* Blob Animation */
+.fluid-1 {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 350px;
+    z-index: 1;
+    transition: 0.6s ease-in-out;
+}
+
+.top-icons {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 10;
+    font-size: 26px;
+    color: white;
+}
+
+.form-title {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    z-index: 10;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+/* Form Styling */
+.form-content {
+    position: relative;
+    margin-top: 250px;
+    padding: 0 30px;
+    z-index: 2;
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 5px;
+    border: none;
+    border-bottom: 2px solid #eee;
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.input-field:focus {
+    border-bottom-color:  #2095ae;
+}
+
+.input-submit {
+    width: 100%;
+    padding: 12px;
+    background:  #2095ae;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.input-submit:hover {
+    background:  #2095ae;
+    box-shadow: 0 5px 15px rgba(32, 149, 174, 0.3);
+}
+
+.form-bottom-Links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.form-bottom-Links a {
+    color: #2095ae;
+    text-decoration: none;
+}
+/* ------------------------------footer---------------------------- */
+
+.footer{
+    width: 100%;
+    margin-top: 80px;
+    background-color: rgb(21, 74, 74);
+}
+
+.foot{
+    padding: 20px 0;
+}
+
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.footlinks h4{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+.footlinks h4::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    left: 0;
+    bottom: -7px;
+    background: white;
+}
+.footlinks {
+    text-align: left;
+}
+
+.footlinks ul {
+    list-style: none;    
+    padding: 0;         
+    margin: 0;          
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.footlinks ul li {
+    margin-bottom: 12px;
+    margin-left: 0;      
+}
+
+.footlinks ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.footlinks ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; 
+}
+.social a{
+    font-size: 25px;
+    margin: 4px;
+    height: 40px;
+    width: 40px;
+    color: rgb(21, 74, 74);
+    background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: ease 0.30s;
+    text-decoration: none;
+}
+
+.social a:hover{
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.end{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 12px;
+}
+
+.end p{
+    font-size: 15px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+
+.footlinks h4 {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px; 
+    text-transform: capitalize;
+}
+
+.footlinks .Lead {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+.footlinks form {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    max-width: 400px; 
+    border: 1px solid grey;
+}
+
+
+.footlinks input {
+    width: 100%; 
+    outline: none;
+    border: 1px solid var(--light-grey-color);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+}
+
+
+.footlinks button {
+    position: absolute; 
+    right: 10px;
+    padding: 0.5rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    cursor: pointer;
+    color: var(--white-color);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footlinks button:hover {
+    background: white;
+    color: var(--primary-color);
+}
