@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import User, Destination, Tour, Booking, Review, Blog
+from .models import *
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'role', 'phone')
+    list_display = ('username', 'email', 'password', 'address', 'cnic')
 
 @admin.register(Destination)
 class DestinationAdmin(admin.ModelAdmin):

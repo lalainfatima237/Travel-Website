@@ -11,8 +11,8 @@ urlpatterns = [
     path('explore/', views.explore, name='explore'),
 
     # Users
-    path("users/", UserListCreateView.as_view(), name="user-list"),
-    path("users/<int:pk>/", UserDetailView.as_view(), name="user-detail"),
+   path('signup/', UserAPIView.as_view(), name='api_signup'),
+   
 
     # Destinations
     path("destinations/", DestinationListCreateView.as_view(), name="destination-list"),
