@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
+    <title>Packages</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    
+    <style>
+    
+ 
+        :root {
+            --primary-green: #2095ae;
+            --white-color:#fff;
+    --light-grey-color:#ddd; 
+        }
+        body { background-color: #f8f9fa; }
+        
+        /* Header Styling */
+        .contact-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+
+        /* Form Styling */
+        .contact-section {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .btn-send {
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 30px;
+            border: none;
+            float: left;
+
+        }
+        .btn-send:hover {
+            background-color:  #2095ae;
+            color: white;
+        }
+        .map-container {
+            height: 100%;
+            min-height: 400px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .footlinks ul li a:hover {
+            color:#2095ae;
+            padding-left: 5px; 
+        }
+        .social a:hover{
+           transform: scale(1.2);
+           color:#2095ae;
+        }
+        .footlinks button {
+    position: absolute; 
+    right: 10px;
+    padding: 0.5rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: #2095ae;
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footlinks button:hover {
+    background: white;
+      color:#2095ae;
+}
+
+
+.location-section{
+    padding: 110px;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.location-heading h1{
+    margin-top: 20px;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.location-heading h1 span{
+    color: #2095ae;
+}
+
+.location-detail h1{
+    padding-top: 60px;
+    color: #2095ae;
+    font-size: 40px;
+}
+
+.location-detail p{
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.location-img {
+    display: flex;
+    gap: 200px;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+.location-img img{
+    height: 600px;
+    width: 400px;
+    {% comment %} margin-top: 30px; {% endcomment %}
+    {% comment %} margin-bottom: 30px; {% endcomment %}
+    object-fit: cover;
+    border-radius: 10px;
+}
+.location-img h3 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stars i{
+    font-size: 20px;
+    color: rgb(197, 167, 44);
+}
+
+
+    </style>
+</head>
+<body>
+<section class="location-section">
+    <div class="location-heading">
+        <h1>Discover The <span>Beautiful World</span></h1>
+    </div>
+ <div class="location-detail" id="kashmir">
+    <h1>Canada</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+    </div>
+    <p>Canada is one of the largest and most beautiful countries in the world, located in North America. It is well known for its peaceful environment, high quality of life, and breathtaking natural landscapes. The country has a rich history that begins with Indigenous peoples who lived on this land for thousands of years before European explorers arrived. During the 15th and 16th centuries, French and British settlers established colonies in the region, which later shaped Canada’s culture, language, and political system. In 1867, Canada became an independent nation, while still maintaining strong ties with the British Crown.
+
+Geographically, Canada is famous for its vast forests, crystal-clear lakes, snow-covered mountains, and stunning waterfalls. One of the most popular natural attractions is Niagara Falls, which attracts millions of tourists every year. Major cities like Toronto, Vancouver, and Montreal offer a perfect mix of modern lifestyle and cultural diversity. Canada is an ideal destination for travelers who love nature, adventure, safety, and multicultural experiences.</p>
+    <div class="location-img">
+        <div class="img-box">
+        <img src="../static/img/c1.jpg" alt="">
+        <h3 >Peace Tower</h3>
+    </div>
+    <div class="img-box">
+        <img src="../static/img/c6.JPG" alt="">
+        <h3>The Forks</h3>
+    </div>
+
+ </div>
+
+ <div class="location-detail" id="istanbul">
+    <h1>Japan</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star-half'></i></a>
+    </div>
+    <p> Japan is a fascinating island country located in East Asia, known for blending ancient traditions with advanced modern technology. Japan’s history includes a long period of imperial rule and a strong samurai culture, which has deeply influenced its values of discipline, respect, and honor. After World War II, Japan rapidly developed into one of the world’s leading economies.
+
+The country is made up of thousands of islands and is surrounded by the Pacific Ocean. Japan is famous for its beautiful landscapes, including mountains, forests, and volcanic areas such as Mount Fuji. Cities like Tokyo and Osaka represent modern life, while Kyoto preserves traditional temples and cultural heritage. Japan attracts travelers with its cherry blossom season, clean cities, unique culture, and technological innovation.</p>
+    <div class="location-img">
+     <div class="img-box">
+        <img src="../static/img/Himeji Castle.jpg" alt="">
+        <h3>Himeji Castle</h3>
+    </div>
+
+    <div class="img-box">
+        <img src="../static/img/Senso-ji Temple.jpg" alt="">
+        <h3>Sensō-ji Temple</h3>
+    </div>
+ </div>
+
+ <div class="location-detail" id="paris">
+    <h1>Maldives</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star-half'></i></a>
+    </div>
+    <p>Maldives is a tropical island country located in the Indian Ocean and is one of the world’s most popular luxury travel destinations. The country consists of more than a thousand small coral islands, known for their white sandy beaches and clear blue waters. Historically, the Maldivian people depended on fishing and trade, but tourism has now become the main source of income.
+
+Maldives is especially famous for its overwater villas, coral reefs, and marine life, making it a perfect destination for honeymooners and beach lovers. The peaceful environment, warm climate, and natural beauty attract visitors from around the world. It is an ideal place for relaxation, snorkeling, diving, and enjoying a calm island lifestyle.</p>
+    <div class="location-img">
+        <div class="img-box">
+        <img src="../static/img/maldivesa island.jpg" alt="">
+        <h3>Maldvies Island</h3>
+        </div>
+        <div class="img-box">
+        <img src="../static/img/Tsunami Monument.webp" alt="">
+        <h3>Tsunami Monument</h3> 
+    </div>
+ </div>
+
+ <div class="location-detail" id="bali">
+    <h1>India</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star-half'></i></a>
+    </div>
+    <p>India is a vast and diverse country located in South Asia, known for its ancient civilization and deep cultural roots. The history of India dates back thousands of years to the Indus Valley Civilization. Over time, the region was ruled by powerful empires such as the Mauryas, Guptas, and Mughals. In the modern era, India was under British colonial rule until it gained independence in 1947.
+
+India is famous for its cultural diversity, with hundreds of languages, traditions, and religions coexisting together. From the snow-covered Himalayas in the north to tropical beaches in the south, India offers a wide range of landscapes. Popular attractions such as the Taj Mahal, Jaipur’s forts, and Kerala’s backwaters make India a unique destination for travelers interested in history, culture, spirituality, and colorful experiences.</p>
+    <div class="location-img">
+        <div class="img-box">
+         <img src="../static/img/taj mahal.jpg" alt="">
+         <h3>Taj Mahal</h3>
+        </div>
+        <div class="img-box">
+        <img src="../static/img/taj palace.jpg" alt="">
+        <h3>Taj Palace</h3>
+    </div>
+ </div>
+
+ <div class="location-detail" id="dubai">
+    <h1>Makkah</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+    </div>
+    <p>Makkah is a holy city located in Saudi Arabia and holds the highest religious importance in Islam. It is the birthplace of Prophet Muhammad ﷺ and the location of the Holy Kaaba, which is situated inside Masjid al-Haram. Muslims from all over the world face the Kaaba during daily prayers, making Makkah the spiritual center of Islam.
+
+Historically, Makkah has been a place of worship since the time of Prophet Ibrahim (A.S). Every year, millions of Muslims visit the city to perform Hajj and Umrah, fulfilling one of the most important religious duties in Islam. The city is not a tourist destination in the traditional sense, but rather a place of peace, faith, and spiritual reflection. Entry to Makkah is strictly allowed only for Muslims.</p>
+    <div class="location-img">
+        <div class="img-box">
+        <img src="../static/img/masjid al haram.jpg" alt="">
+         <h3>Masjid al Haram</h3>
+        </div>
+        <div class="img-box">
+        <img src="../static/img/clock tower.jpg" alt="">
+        <h3>Clock Tower</3>
+    </div>
+ </div>
+
+ <div class="location-detail" id="geneva">
+    <h1>France</h1>
+    <div class="stars">
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star'></i></a>
+        <a href="#"><i class='bx bxs-star-half'></i></a>
+    </div>
+    <p>France is a culturally rich and historically important country located in Western Europe. It is widely known as the global center of art, fashion, cuisine, and romance. France has played a major role in shaping European history, especially during the French Revolution of 1789, which introduced ideas of liberty, equality, and democracy. Over the centuries, France has influenced literature, architecture, and politics across the world.
+
+The country offers a diverse landscape that includes beautiful countryside, long coastlines, and the famous Alps mountains. Paris, the capital city, is one of the most visited cities in the world and is home to iconic landmarks such as the Eiffel Tower and the Louvre Museum. France is a dream destination for travelers who enjoy history, fine food, art museums, and romantic city life.</p>
+    <div class="location-img">
+        <div class="img-box">
+        <img src="../static/img/f2.jpg" alt="">
+        <h3>Place de la République</h3>
+        </div>
+        <div class="img-box">
+        <img src="../static/img/f1.jpg" alt="">
+        <h3>Sanctuary of Our Lady of Lourdes</h3>
+    </div>
+ </div>
+
+ 
+    </section>
+<!-- Footer -->
+
+    <footer class="footer">
+    <div class="foot">
+        <div class="footer-content">
+          <div class="footlinks">
+    <h4>subscribe</h4>
+    <p class="Lead">
+        Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
+    </p>
+    <form action="#">
+        <input type="email" placeholder="Email Address"> 
+        <button type="button" class="button">Send</button>
+    </form>
+</div>
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+           
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/lalainfatima4" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/lalain-fatima/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/lalainfatima237" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
+    </div>
+</footer>
+</body>
+</html>
