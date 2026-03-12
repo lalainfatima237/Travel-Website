@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
+    <title>Contact </title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    
+    <style>
+        :root {
+            --primary-green: #2095ae; 
+            --primary-color: #2095ae;
+        }
+        body { background-color: #f8f9fa; padding-top: 100px; } /* Space for fixed header */
+        
+        /* --- Fixed Navigation Bar Styling --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #2095ae; /* Solid color for visibility on contact page */
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul { list-style: none; gap: 15px; }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { background: rgba(255,255,255,0.2); }
+        
+        .logo img { width: 50px; height: auto; }
+        .btn-login { color: white; border: 1px solid white; padding: 8px 20px; border-radius: 30px; text-decoration: none; margin-right: 10px; }
+        .btn-register { background: #5ee4ff; color: white; padding: 8px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; }
+
+        /* --- Contact Section --- */
+        .contact-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        .contact-section {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        .map-container { min-height: 450px; height: 100%; }
+        
+        /* Footer */
+        .footer{
+    margin-top: 80px;
+    background-color: rgb(21, 74, 74);
+    
+}
+
+.foot{
+    padding: 20px 0;
+}
+
+.footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.footlinks h4{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+.footlinks h4::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    left: 0;
+    bottom: -7px;
+    background: white;
+}
+
+.footlinks {
+    text-align: left;
+}
+
+.footlinks ul {
+    list-style: none;    
+    padding: 0;         
+    margin: 0;          
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.footlinks ul li {
+    margin-bottom: 12px;
+    margin-left: 0;      
+}
+
+.footlinks ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.footlinks ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; 
+}
+.social a{
+    font-size: 25px;
+    margin: 4px;
+    height: 40px;
+    width: 40px;
+    color: rgb(21, 74, 74);
+    background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: ease 0.30s;
+    text-decoration: none;
+}
+
+.social a:hover{
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.end{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 12px;
+}
+
+.end p{
+    font-size: 15px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+
+.footlinks h4 {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px; 
+    text-transform: capitalize;
+}
+
+.footlinks .Lead {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+.footlinks form {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    max-width: 400px; 
+}
+
+
+.footlinks input {
+    width: 100%; 
+    outline: none;
+    border: 1px solid var(--light-grey-color);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+}
+ .footlinks button{ 
+ position: absolute; 
+    right: 5px; /* Thoda adjust kiya */
+    top: 5px;   /* Input ke andar center karne ke liye */
+    bottom: 5px;
+    padding: 0 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-green); /* Button default green */
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footlinks button:hover {
+    background: white;
+    color: var(--primary-green); /* Hover par text green ho jaye */
+    border: 1px solid var(--primary-green);
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
+            </div>  
+
+            <ul class="d-flex align-items-center mb-0">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#choose-place">Tours</a></li>
+                <li><a href="#top-destination">Destination</a></li>
+                <li><a href="#travel-blog">Gallery</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul> 
+
+            <div class="register-btn">
+                <a href="{% url 'login' %}" class="btn-login">Login</a>
+                <a href="{% url 'register' %}" class="btn-register">REGISTER</a>
+            </div> 
+        </nav>
+    </div>
+</header>
+
+<div class="container my-3">
+    <div class="text-center mb-3">
+        <h1 class="fw-bold">Let's Connect</h1>
+        <p class="text-muted">
+            Planning your next adventure? We're just a message away!<br>
+            Reach out to us for travel tips, bookings, or any inquiries.
+        </p>
+    </div>
+
+    <div class="row contact-section g-1">
+        <div class="col-lg-6">
+            <h4 class="contact-header">Contact Us</h4>
+            <div class="p-4 p-md-5">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" placeholder="First Name *">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
+                                <input type="text" class="form-control" placeholder="Mobile No *">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email ID *">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-primary" style="background-color: var(--primary-green); border:none; border-radius: 30px; padding: 10px 40px;">
+                                Send Message <i class="bi bi-send-fill ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-6 d-flex flex-column">
+            <h4 class="contact-header">Our Location</h4>
+            <div class="map-container flex-grow-1">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.463697960303!2d73.1534954!3d33.567307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb22d3b4f655%3A0x63346d07d1733735!2sDHA%20Phase%20II%2C%20Islamabad!5e0!3m2!1sen!2spk!4v1690000000000!5m2!1sen!2spk" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <footer class="footer">
+    <div class="foot">
+        <div class="footer-content">
+          <div class="footlinks">
+    <h4>subscribe</h4>
+    <p class="Lead">
+        Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
+    </p>
+    <form action="#">
+        <input type="email" placeholder="Email Address"> 
+        <button type="button" class="button">Send</button>
+    </form>
+</div>
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+           
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/lalainfatima4" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.linkedin.com/in/lalain-fatima/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/lalainfatima237" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2025 SEE THE WORLD All Rights Reserved.<br>Website developed by: lalain Fatima</p>
+    </div>
+</footer>
+
+</body>
+</html>

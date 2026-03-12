@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
+    <title>Book Now</title>
+
+    <style>
+.booking-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+.form-row { display: flex; gap: 10px; }
+.btn-submit { background: #007bff; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 16px; }
+    </style>
+    
+</head>
+<body>
+    <div class="booking-container">
+    <h2>Book Your Trip</h2>
+    <form action="{% url 'booking' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="customer_name" required placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label>Select Location</label>
+            <select name="location">
+                <option value="london">London</option>
+                <option value="texas">Texas</option>
+                <option value="paris">Paris</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Check-in</label>
+                <input type="date" name="check_in" required>
+            </div>
+            <div class="form-group">
+                <label>Check-out</label>
+                <input type="date" name="check_out" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Total Guests</label>
+            <input type="number" name="guests" min="1" value="1">
+        </div>
+
+        <button type="submit" class="btn-submit">Confirm Booking</button>
+    </form>
+</div>
+
+
+</body>
+
+</html>
