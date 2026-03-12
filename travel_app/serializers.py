@@ -35,18 +35,19 @@ class TourSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'price', 'duration', 'description', 'image', 'destination', 'destination_id']
 
 class BookingSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-    user_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), source="user", write_only=True
-    )
-    tour = TourSerializer(read_only=True)
-    tour_id = serializers.PrimaryKeyRelatedField(
-        queryset=Tour.objects.all(), source="tour", write_only=True
-    )
-
     class Meta:
         model = Booking
-        fields = ['id', 'user', 'user_id', 'tour', 'tour_id', 'booking_date', 'status']
+        fields = [
+            'id', 
+            'customer_name', 
+            'location', 
+            'check_in', 
+            'check_out', 
+            'guests', 
+            'status', 
+            'created_at'
+        ]
+        read_only_fields = ['status', 'created_at']
 
 class ReviewSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)

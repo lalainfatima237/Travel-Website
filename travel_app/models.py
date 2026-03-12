@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 # -----------------------------
 class User(AbstractUser):
     address = models.TextField(blank=True, null=True)
-    cnic = models.CharField(max_length=15, unique=True)
+    cnic = models.CharField(max_length=15, unique=True, null=True, blank=True)
 
 # -----------------------------
 # DESTINATION MODEL
@@ -47,20 +47,20 @@ class Tour(models.Model):
 # -----------------------------
 # BOOKING MODEL
 # -----------------------------
+from django.db import models
+
 class Booking(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('confirmed', 'Confirmed'),
-        ('cancelled', 'Cancelled'),
-    ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name='bookings')
-    booking_date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
-    updated_at = models.DateTimeField(auto_now=True)
+    customer_name = models.CharField(max_length=200)
+    location = models.CharField(max_length=100)
+    check_in = models.DateField()
+    check_out = models.DateField()
+    guests = models.IntegerField(default=1)
+    status = models.CharField(max_length=20, default='Pending') 
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.tour.title} ({self.status})"
+        return f"{self.customer_name} - {self.location}"
+    
 
 
 # -----------------------------

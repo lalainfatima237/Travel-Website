@@ -15,7 +15,7 @@ class TourAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('user', 'tour', 'status', 'booking_date')
+    list_display = ('customer_name','location','check_in','check_out','guests','status')
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):

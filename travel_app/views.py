@@ -1,11 +1,12 @@
 from rest_framework import generics
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
 
 
 def home(request):
@@ -30,7 +31,10 @@ def explore(request):
     return render(request, 'explore.html')
 def Login(request):
     return render(request,'login.html')
-
+def dashboard(request):
+    return render(request,'dashboard.html')
+def booking(request):
+    return render(request,'Booking.html')
 
 # -------- Users --------
 class UserAPIView(APIView):
@@ -43,7 +47,6 @@ class UserAPIView(APIView):
                 status=status.HTTP_201_CREATED
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 # -------- Destinations --------
 class DestinationListCreateView(generics.ListCreateAPIView):
