@@ -135,6 +135,12 @@ header {
     height: 100%;
     object-fit: cover;
 }
+.chart-container {
+    width: 400px; /* Aap apni marzi ka size de sakti hain */
+    height: 400px;
+    margin: auto; /* Center karne ke liye */
+    margin-left:40px;
+}
 </style>
 <body>
      {% load static %}
@@ -175,7 +181,8 @@ header {
         </div>
         <div class="card-info">
             <p>Total Users</p>
-            {% comment %} <h3>25696</h3> {% endcomment %}
+            <h3>{{ total_users }}</h3>
+           
         </div>
     </div>
 
@@ -185,7 +192,8 @@ header {
         </div>
         <div class="card-info">
             <p>Total Bookings</p>
-            {% comment %} <h3>25696</h3> {% endcomment %}
+            <h3>{{ total_bookings }}</h3>
+            
         </div>
     </div>
 
@@ -195,7 +203,8 @@ header {
         </div>
         <div class="card-info">
             <p>Total Revenue</p>
-            {% comment %} <h3>25,696</h3> {% endcomment %}
+            <h3>{{ total_revenue }}</h3>
+            
         </div>
     </div>
 
@@ -206,7 +215,8 @@ header {
         </div>
         <div class="card-info">
             <p>Total Locations</p>
-            {% comment %} <h3>25696</h3> {% endcomment %}
+            <h3>{{ total_locations }}</h3>
+           
         </div>
     </div>
 </section>
@@ -220,28 +230,61 @@ header {
                 </div>
             </section>
 
-            <section class="table-section">
-                <h3>Recent Bookings</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Booking Id</th>
-                            <th>Customer Name</th>
-                            <th>Location</th>
-                            <th>Check in</th>
-                            <th>Check Out</th>
-                            <th>Guests</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                           
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+          <section class="table-section">
+    <h3>Recent Bookings</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Booking Id</th>
+                <th>Customer Name</th>
+                <th>Location</th>
+                <th>Check in</th>
+                <th>Check Out</th>
+                <th>Guests</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for b in bookings %} <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.customer_name }}</td>
+        <td>{{ b.location|title }}</td>
+        <td>{{ b.check_in }}</td>
+        <td>{{ b.check_out }}</td>
+        <td>{{ b.guests }}</td>
+        <td>
+            <div class="status-btn" 
+                 style="background-color: #f1f3f5; 
+                        color: #495057; 
+                        border: 1px solid #dee2e6; 
+                        padding: 6px 14px; 
+                        border-radius: 20px; 
+                        font-size: 13px; 
+                        display: inline-flex; 
+                        align-items: center; 
+                        gap: 8px;
+                        font-weight: 500;
+                        pointer: cursor;"
+                        >
+                
+                {% if b.status == 'Pending' %}
+                    <span style="height: 8px; width: 8px; background-color: #ffc107; border-radius: 50%;"></span>
+                {% else %}
+                    <span style="height: 8px; width: 8px; background-color: #28a745; border-radius: 50%;"></span>
+                {% endif %}
+                
+                {{ b.status }}
+            </div>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="7" style="text-align: center;">Not Found Booking</td>
+    </tr>
+    {% endfor %}
+</tbody>
+    </table>
+</section>
         </main>
     </div>
 

@@ -32,9 +32,41 @@ def explore(request):
 def Login(request):
     return render(request,'login.html')
 def dashboard(request):
-    return render(request,'dashboard.html')
+    bookings_list = Booking.objects.all().order_by('-id') 
+    total_bookings = bookings_list.count()
+    total_revenue = total_bookings * 500
+    
+    total_users = total_bookings 
+    total_locations = Booking.objects.values('location').distinct().count()
+
+    context = {
+        'bookings': bookings_list,
+        'total_bookings': total_bookings,
+        'total_revenue': total_revenue,
+        'total_users': total_users,
+        'total_locations': total_locations,
+    }
+    return render(request, 'dashboard.html', context)
+
 def booking(request):
-    return render(request,'Booking.html')
+    if request.method == "POST":
+        name = request.POST.get('customer_name')
+        loc = request.POST.get('location')
+        cin = request.POST.get('check_in')
+        cout = request.POST.get('check_out')
+        gst = request.POST.get('guests')
+
+        if name and loc and cin and cout:
+            Booking.objects.create(
+                customer_name=name,
+                location=loc,
+                check_in=cin,
+                check_out=cout,
+                guests=gst
+            )
+            return redirect('dashboard') 
+    
+    return render(request, 'Booking.html')
 
 # -------- Users --------
 class UserAPIView(APIView):
