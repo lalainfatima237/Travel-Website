@@ -5,8 +5,12 @@ from django.contrib.auth.models import AbstractUser
 # USER MODEL
 # -----------------------------
 class User(AbstractUser):
+    email = models.EmailField(unique=True)
     address = models.TextField(blank=True, null=True)
     cnic = models.CharField(max_length=15, unique=True, null=True, blank=True)
+
+    USERNAME_FIELD = 'email'  
+    REQUIRED_FIELDS = ['username']
 
 # -----------------------------
 # DESTINATION MODEL

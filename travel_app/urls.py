@@ -12,7 +12,12 @@ urlpatterns = [
     path('explore/', views.explore, name='explore'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path("booking/", views.booking, name="booking"),
+    path('profile/edit/', views.profile, name='profile'),
 
+
+
+
+#------------------------- APIs urls------------------------------------#
     # Users
    path('signup/', UserAPIView.as_view(), name='api_signup'),
    

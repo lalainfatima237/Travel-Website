@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 
 
@@ -30,9 +31,33 @@ def packages_view(request):
 def explore(request):
     return render(request, 'explore.html')
 def Login(request):
-    return render(request,'login.html')
+    if request.method == "POST":
+        u_email = request.POST.get('email')
+        u_pass = request.POST.get('password')
+        
+        # 1. Check karein ke data aa raha hai
+        print(f"Attempting login for: {u_email}") 
+
+        # 2. Authenticate (Email ko username ke taur par pass karein)
+        user = authenticate(request, username=u_email, password=u_pass)
+        
+        if user is not None:
+            login(request, user)
+            print("Login Successful!")
+            # 'next' parameter handle karein (profile edit par jane ke liye)
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            return redirect('dashboard')
+        else:
+            print("Login Failed: Invalid credentials")
+            return render(request, 'login.html', {'error': 'Invalid Email or Password'})
+            
+    return render(request, 'login.html')
+
+
 def dashboard(request):
-    bookings_list = Booking.objects.all().order_by('-id') 
+    bookings_list = Booking.objects.all().order_by('id') 
     total_bookings = bookings_list.count()
     total_revenue = total_bookings * 500
     
@@ -64,10 +89,33 @@ def booking(request):
                 check_out=cout,
                 guests=gst
             )
-            return redirect('dashboard') 
+            messages.success(request, 'Your booking has been done successfully!')
+            return redirect('booking') 
     
     return render(request, 'Booking.html')
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile(request):
+    if request.method == "POST":
+        # Admin ki information update karna
+        request.user.first_name = request.POST.get('first_name')
+        request.user.email = request.POST.get('email')
+        
+        # Agar image upload ki hai toh
+        if request.FILES.get('profile_pix'):
+            request.user.profile_pix = request.FILES.get('profile_pix')
+            
+        request.user.save()
+        messages.success(request, "Profile updated successfully!")
+        return redirect('dashboard')
+
+    return render(request, 'profile.html')
+
+
+
+#----------------------------API--------------------------------------------#
 # -------- Users --------
 class UserAPIView(APIView):
     def post(self, request):

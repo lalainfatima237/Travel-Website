@@ -57,7 +57,37 @@
     </style>
 </head>
 <body>
+{% if messages %}
+    <div id="message-container" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 100%; max-width: 400px; padding: 0 20px;">
+        {% for message in messages %}
+            <div class="alert alert-success shadow-lg" role="alert" 
+                 style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 12px; border: 1px solid #c3e6cb; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); animation: slideDown 0.5s ease-out;">
+                
+                <span><i class="fa-solid fa-circle-check" style="margin-right: 10px;"></i> {{ message }}</span>
+                
+                <button type="button" onclick="this.parentElement.style.display='none'" style="border: none; background: transparent; cursor: pointer; font-size: 22px; color: #155724; line-height: 1;">&times;</button>
+            </div>
+        {% endfor %}
+    </div>
 
+    <style>
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+    <script>
+        setTimeout(function() {
+            var msg = document.getElementById('message-container');
+            if (msg) {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(function() { msg.remove(); }, 500);
+            }
+        }, 5000); 
+    </script>
+{% endif %}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">

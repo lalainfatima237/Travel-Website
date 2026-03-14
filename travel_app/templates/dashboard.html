@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image" href="../static/img/Eqz7Dy-travel-world-transparent-logo.png">
-    <title>Dashboard</title>
+    <title> Admin Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -166,12 +166,13 @@ header {
     </div>
     
     <div class="user-profile">
-        <div class="profile-info">
-            <i class="fa-regular fa-bell"></i> </div>
-        <div class="profile-img-container">
-            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-img">
-        </div>
+    <div class="profile-info">
+        <i class="fa-regular fa-bell"></i> 
     </div>
+    <a href="{% url 'profile' %}" class="profile-img-container" style="text-decoration: none;">
+        <img src="{{ request.user.profile_pix.url|default:'../static/img/woman.png' }}" alt="Profile" class="profile-img">
+    </a>
+</div>
 </header>
 
         <section class="stats">
@@ -246,7 +247,8 @@ header {
         </thead>
         <tbody>
     {% for b in bookings %} <tr>
-        <td>{{ b.id }}</td>
+        
+        <td>{{ forloop.counter }}</td>
         <td>{{ b.customer_name }}</td>
         <td>{{ b.location|title }}</td>
         <td>{{ b.check_in }}</td>
