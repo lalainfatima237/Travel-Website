@@ -190,6 +190,9 @@
                     <li>Friendly Tour Guide</li>
                     <li>24/7 Customer Help Center</li>
                 </ul>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{% url 'booking' %}?package=Bronze" class="btn btn-outline-info" style="border-radius: 20px; padding: 5px 20px;">Book Now</a>
+                </div>
             </div>
         </div>
         </div>
@@ -210,6 +213,9 @@
                     <li>Friendly Tour Guide</li>
                     <li>24/7 Customer Help Center</li>
                 </ul>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{% url 'booking' %}?package=Silver" class="btn btn-outline-info" style="border-radius: 20px; padding: 5px 20px;">Book Now</a>
+                </div>
             </div>
         </div>
         </div>
@@ -231,6 +237,9 @@
                     <li>Friendly Tour Guide</li>
                     <li>24/7 Customer Help Center</li>
                 </ul>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{% url 'booking' %}?package=Gold" class="btn btn-outline-info" style="border-radius: 20px; padding: 5px 20px;">Book Now</a>
+                </div>
             </div>
         </div>
         </div>
@@ -253,6 +262,9 @@
                     <li>Friendly Tour Guide</li>
                     <li>24/7 Customer Help Center</li>
                 </ul>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{% url 'booking' %}?package=Platinum" class="btn btn-outline-info" style="border-radius: 20px; padding: 5px 20px;">Book Now</a>
+                </div>
             </div>
         </div>
         </div>
@@ -271,9 +283,10 @@
     <p class="Lead">
         Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
     </p>
-    <form action="#">
-        <input type="email" placeholder="Email Address"> 
-        <button type="button" class="button">Send</button>
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email Address" required> 
+        <button type="submit" class="button">Send</button>
     </form>
 </div>
             

@@ -260,34 +260,35 @@
         <div class="col-lg-6">
             <h4 class="contact-header">Contact Us</h4>
             <div class="p-4 p-md-5">
-                <form>
+                <form action="{% url 'contact_submit' %}" method="POST">
+                    {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
-                                <input type="text" class="form-control" placeholder="First Name *">
+                                <input type="text" name="first_name" class="form-control" placeholder="First Name *" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
-                                <input type="text" class="form-control" placeholder="Last Name">
+                                <input type="text" name="last_name" class="form-control" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
-                                <input type="text" class="form-control" placeholder="Mobile No *">
+                                <input type="text" name="mobile_no" class="form-control" placeholder="Mobile No *" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
-                                <input type="email" class="form-control" placeholder="Email ID *">
+                                <input type="email" name="email" class="form-control" placeholder="Email ID *" required>
                             </div>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
                         </div>
                         <div class="col-12 text-center mt-4">
                             <button type="submit" class="btn btn-primary" style="background-color: var(--primary-green); border:none; border-radius: 30px; padding: 10px 40px;">
@@ -318,9 +319,10 @@
     <p class="Lead">
         Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
     </p>
-    <form action="#">
-        <input type="email" placeholder="Email Address"> 
-        <button type="button" class="button">Send</button>
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email Address" required> 
+        <button type="submit" class="button">Send</button>
     </form>
 </div>
             

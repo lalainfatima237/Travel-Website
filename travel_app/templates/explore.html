@@ -154,144 +154,33 @@
     <div class="location-heading">
         <h1>Discover The <span>Beautiful World</span></h1>
     </div>
- <div class="location-detail" id="kashmir">
-    <h1>Canada</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-    </div>
-    <p>Canada is one of the largest and most beautiful countries in the world, located in North America. It is well known for its peaceful environment, high quality of life, and breathtaking natural landscapes. The country has a rich history that begins with Indigenous peoples who lived on this land for thousands of years before European explorers arrived. During the 15th and 16th centuries, French and British settlers established colonies in the region, which later shaped Canada’s culture, language, and political system. In 1867, Canada became an independent nation, while still maintaining strong ties with the British Crown.
-
-Geographically, Canada is famous for its vast forests, crystal-clear lakes, snow-covered mountains, and stunning waterfalls. One of the most popular natural attractions is Niagara Falls, which attracts millions of tourists every year. Major cities like Toronto, Vancouver, and Montreal offer a perfect mix of modern lifestyle and cultural diversity. Canada is an ideal destination for travelers who love nature, adventure, safety, and multicultural experiences.</p>
-    <div class="location-img">
-        <div class="img-box">
-        <img src="../static/img/c1.jpg" alt="">
-        <h3 >Peace Tower</h3>
-    </div>
-    <div class="img-box">
-        <img src="../static/img/c6.JPG" alt="">
-        <h3>The Forks</h3>
-    </div>
-
- </div>
-
- <div class="location-detail" id="istanbul">
-    <h1>Japan</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star-half'></i></a>
-    </div>
-    <p> Japan is a fascinating island country located in East Asia, known for blending ancient traditions with advanced modern technology. Japan’s history includes a long period of imperial rule and a strong samurai culture, which has deeply influenced its values of discipline, respect, and honor. After World War II, Japan rapidly developed into one of the world’s leading economies.
-
-The country is made up of thousands of islands and is surrounded by the Pacific Ocean. Japan is famous for its beautiful landscapes, including mountains, forests, and volcanic areas such as Mount Fuji. Cities like Tokyo and Osaka represent modern life, while Kyoto preserves traditional temples and cultural heritage. Japan attracts travelers with its cherry blossom season, clean cities, unique culture, and technological innovation.</p>
-    <div class="location-img">
-     <div class="img-box">
-        <img src="../static/img/Himeji Castle.jpg" alt="">
-        <h3>Himeji Castle</h3>
-    </div>
-
-    <div class="img-box">
-        <img src="../static/img/Senso-ji Temple.jpg" alt="">
-        <h3>Sensō-ji Temple</h3>
-    </div>
- </div>
-
- <div class="location-detail" id="paris">
-    <h1>Maldives</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star-half'></i></a>
-    </div>
-    <p>Maldives is a tropical island country located in the Indian Ocean and is one of the world’s most popular luxury travel destinations. The country consists of more than a thousand small coral islands, known for their white sandy beaches and clear blue waters. Historically, the Maldivian people depended on fishing and trade, but tourism has now become the main source of income.
-
-Maldives is especially famous for its overwater villas, coral reefs, and marine life, making it a perfect destination for honeymooners and beach lovers. The peaceful environment, warm climate, and natural beauty attract visitors from around the world. It is an ideal place for relaxation, snorkeling, diving, and enjoying a calm island lifestyle.</p>
-    <div class="location-img">
-        <div class="img-box">
-        <img src="../static/img/maldivesa island.jpg" alt="">
-        <h3>Maldvies Island</h3>
+    {% for d in destinations %}
+    <div class="location-detail" id="dest-{{ d.id }}">
+        <h1>{{ d.name }} - {{ d.country }}</h1>
+        <div class="stars">
+            <a href="#"><i class='bx bxs-star'></i></a>
+            <a href="#"><i class='bx bxs-star'></i></a>
+            <a href="#"><i class='bx bxs-star'></i></a>
+            <a href="#"><i class='bx bxs-star'></i></a>
+            <a href="#"><i class='bx bxs-star'></i></a>
         </div>
-        <div class="img-box">
-        <img src="../static/img/Tsunami Monument.webp" alt="">
-        <h3>Tsunami Monument</h3> 
-    </div>
- </div>
-
- <div class="location-detail" id="bali">
-    <h1>India</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star-half'></i></a>
-    </div>
-    <p>India is a vast and diverse country located in South Asia, known for its ancient civilization and deep cultural roots. The history of India dates back thousands of years to the Indus Valley Civilization. Over time, the region was ruled by powerful empires such as the Mauryas, Guptas, and Mughals. In the modern era, India was under British colonial rule until it gained independence in 1947.
-
-India is famous for its cultural diversity, with hundreds of languages, traditions, and religions coexisting together. From the snow-covered Himalayas in the north to tropical beaches in the south, India offers a wide range of landscapes. Popular attractions such as the Taj Mahal, Jaipur’s forts, and Kerala’s backwaters make India a unique destination for travelers interested in history, culture, spirituality, and colorful experiences.</p>
-    <div class="location-img">
-        <div class="img-box">
-         <img src="../static/img/taj mahal.jpg" alt="">
-         <h3>Taj Mahal</h3>
+        <p>{{ d.description }}</p>
+        <div class="location-img">
+            <div class="img-box">
+                {% if d.image %}
+                <img src="{{ d.image.url }}" alt="{{ d.name }}">
+                {% else %}
+                <img src="{% static 'img/c1.jpg' %}" alt="Placeholder">
+                {% endif %}
+                <h3>{{ d.name }}</h3>
+            </div>
         </div>
-        <div class="img-box">
-        <img src="../static/img/taj palace.jpg" alt="">
-        <h3>Taj Palace</h3>
     </div>
- </div>
-
- <div class="location-detail" id="dubai">
-    <h1>Makkah</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
+    {% empty %}
+    <div class="location-detail">
+        <h1>No destinations found.</h1>
     </div>
-    <p>Makkah is a holy city located in Saudi Arabia and holds the highest religious importance in Islam. It is the birthplace of Prophet Muhammad ﷺ and the location of the Holy Kaaba, which is situated inside Masjid al-Haram. Muslims from all over the world face the Kaaba during daily prayers, making Makkah the spiritual center of Islam.
-
-Historically, Makkah has been a place of worship since the time of Prophet Ibrahim (A.S). Every year, millions of Muslims visit the city to perform Hajj and Umrah, fulfilling one of the most important religious duties in Islam. The city is not a tourist destination in the traditional sense, but rather a place of peace, faith, and spiritual reflection. Entry to Makkah is strictly allowed only for Muslims.</p>
-    <div class="location-img">
-        <div class="img-box">
-        <img src="../static/img/masjid al haram.jpg" alt="">
-         <h3>Masjid al Haram</h3>
-        </div>
-        <div class="img-box">
-        <img src="../static/img/clock tower.jpg" alt="">
-        <h3>Clock Tower</3>
-    </div>
- </div>
-
- <div class="location-detail" id="geneva">
-    <h1>France</h1>
-    <div class="stars">
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star'></i></a>
-        <a href="#"><i class='bx bxs-star-half'></i></a>
-    </div>
-    <p>France is a culturally rich and historically important country located in Western Europe. It is widely known as the global center of art, fashion, cuisine, and romance. France has played a major role in shaping European history, especially during the French Revolution of 1789, which introduced ideas of liberty, equality, and democracy. Over the centuries, France has influenced literature, architecture, and politics across the world.
-
-The country offers a diverse landscape that includes beautiful countryside, long coastlines, and the famous Alps mountains. Paris, the capital city, is one of the most visited cities in the world and is home to iconic landmarks such as the Eiffel Tower and the Louvre Museum. France is a dream destination for travelers who enjoy history, fine food, art museums, and romantic city life.</p>
-    <div class="location-img">
-        <div class="img-box">
-        <img src="../static/img/f2.jpg" alt="">
-        <h3>Place de la République</h3>
-        </div>
-        <div class="img-box">
-        <img src="../static/img/f1.jpg" alt="">
-        <h3>Sanctuary of Our Lady of Lourdes</h3>
-    </div>
- </div>
+    {% endfor %}
 
  
     </section>
@@ -305,9 +194,10 @@ The country offers a diverse landscape that includes beautiful countryside, long
     <p class="Lead">
         Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
     </p>
-    <form action="#">
-        <input type="email" placeholder="Email Address"> 
-        <button type="button" class="button">Send</button>
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email Address" required> 
+        <button type="submit" class="button">Send</button>
     </form>
 </div>
             

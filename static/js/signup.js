@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 // 3. API Request bhejein
-                const response = await fetch("/api/signup/", {
+                const response = await fetch("/signup/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
