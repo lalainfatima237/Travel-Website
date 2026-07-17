@@ -8,6 +8,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     address = models.TextField(blank=True, null=True)
     cnic = models.CharField(max_length=15, unique=True, null=True, blank=True)
+    profile_pix = models.ImageField(upload_to='profiles/', blank=True, null=True)
 
     USERNAME_FIELD = 'email'  
     REQUIRED_FIELDS = ['username']
@@ -54,8 +55,10 @@ class Tour(models.Model):
 from django.db import models
 
 class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='bookings')
     customer_name = models.CharField(max_length=200)
     location = models.CharField(max_length=100)
+    package = models.CharField(max_length=50, blank=True, null=True)
     check_in = models.DateField()
     check_out = models.DateField()
     guests = models.IntegerField(default=1)
@@ -98,3 +101,27 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+# -----------------------------
+# MESSAGE MODEL
+# -----------------------------
+class Message(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100, blank=True)
+    mobile_no = models.CharField(max_length=20)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.first_name} {self.last_name}"
+
+# -----------------------------
+# NEWSLETTER MODEL
+# -----------------------------
+class NewsletterSubscriber(models.Model):
+    email = models.EmailField(unique=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

@@ -18,6 +18,8 @@
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <style>
   
@@ -90,8 +92,7 @@
         <div class="scrolled">
             <nav class="d-flex align-items-center justify-content-between">
 
-                <!-- Logo -->
-                <div class="logo ">
+                <div class="logo float-anim">
                     <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
                 </div>  
 
@@ -135,12 +136,12 @@
     <!-- -------------------------showcase------------------------ -->
       <div class="banner">
         <video src="../static/img/bgvid.mp4" type="video/mp4" autoplay muted loop></video>
-        <div class="title">
+        <div class="title" data-aos="fade-up" data-aos-duration="1500">
             
-            <h2>Embrak on Your Next</h2>
-            <h3>Adventure With</h3>
-            <h3>Confidence</h3>
-            <p>Let us be your guide to discovering the world's wonders with ease and enjoyment. </p>
+            <h2 data-aos="fade-right" data-aos-delay="200">Embrak on Your Next</h2>
+            <h3 data-aos="fade-right" data-aos-delay="400">Adventure With</h3>
+            <h3 data-aos="fade-right" data-aos-delay="600">Confidence</h3>
+            <p data-aos="fade-up" data-aos-delay="800">Let us be your guide to discovering the world's wonders with ease and enjoyment. </p>
         </div>
       </div>
 
@@ -148,7 +149,7 @@
     <section id="about">
         <div class="container">
             <div class="about-content-wrapper">
-                <div class="agency-left-side">
+                <div class="agency-left-side" data-aos="fade-right" data-aos-duration="1200">
                     <p class="heading-normal-text">THE BEST TRAVEY AGENCY</P>
                     <h2 class="headings">
                         DISCOVER THE <span>WORLD</span>WITH OUR GUIDE
@@ -184,8 +185,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="agency-right-sides">
-                    <div class="img">
+                <div class="agency-right-sides" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
+                    <div class="img float-anim">
                         <img src="../static/img/about.jpg">
                     </div>
                 </div>
@@ -193,12 +194,12 @@
         </div>
     </section>
     <!-- --------------------------choose your place-------------------------------- -->
-    <section id="choose-place">
+    <section id="choose-place" data-aos="fade-up" data-aos-duration="1200">
         <div class=" text-center container">
             <p class="heading-normal-text">CHOOSE YOUR PLACE</p>
             <h2 class="headings">POPULAR <span>TOURS </span></h2>
             <div class="choose-wrapper">
-                <div class="img-left-side">
+                <div class="img-left-side" data-aos="zoom-in" data-aos-delay="100">
                     <div class="lg-img">
                         <img src="../static/img/istambul1.jpg">
                         <div class="img-content">
@@ -212,7 +213,7 @@
                     </div>
                 </div>
 
-                <div class="img-left-side" id="dubaiSection" class="destination-section">
+                <div class="img-left-side" id="dubaiSection" class="destination-section" data-aos="zoom-in" data-aos-delay="300">
                     <div class="lg-img">
                         <img src="../static/img/dubai.jpg">
                         <div class="img-content">
@@ -401,7 +402,7 @@
             </div>
     </section>
     <!-- ---------------------BG video----------------------------------- -->
-    <section id="Switzerland-valley">
+    <section id="Switzerland-valley" data-aos="fade-up" data-aos-duration="1500">
         {% load static %}
 <div class="video-bg">
     <img src="{% static 'img/switzer land.webp' %}" alt="Background" style="width:100%; height:auto;">
@@ -417,7 +418,7 @@
         </div>
     </section>
     <!-- -------------------------------Travel countries-------------------------- -->
-    <section id="Travel-countries">
+    <section id="Travel-countries" data-aos="fade-up" data-aos-duration="1200">
         <div class="  text-center container">
             <p class="heading-normal-text">MOST POPULAR</p>
             <h2 class="headings">TRAVEL <SPan>COUNTRIES</SPan></h2>
@@ -617,7 +618,7 @@
 </section>
 
     <!-- ----------------------------Reviews------------------------------- -->
-    <section id="testimonials">
+    <section id="testimonials" data-aos="zoom-in-up" data-aos-duration="1200">
         <div class=" text-center container">
             <p class="heading-normal-text">TRAVEL BLOG</p>
             <h2 class="headings">TRAVEL EXPERIENCE</h2>
@@ -710,7 +711,7 @@
         </div>
     </section>
     <!-- ------------------------------footer-------------------------------------- -->
-     <footer class="footer">
+     <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
     <div class="foot">
         <div class="footer-content">
           <div class="footlinks">
@@ -718,9 +719,10 @@
     <p class="Lead">
         Don't miss your next adventure! Subscribe for the best travel tips and hidden gems.
     </p>
-    <form action="#">
-        <input type="email" placeholder="Email Address"> 
-        <button type="button" class="button">Send</button>
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email Address" required> 
+        <button type="submit" class="button">Send</button>
     </form>
 </div>
             
@@ -947,7 +949,13 @@ function subscribe(){
     var name = document.getElementById("name").value;
     alert("Your email sent successfully!\n\nName:" + name  + "\nEmail:" + email + "\nMessage:" + message);
 }
-
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100
+        });
     </script>
 </body>
 

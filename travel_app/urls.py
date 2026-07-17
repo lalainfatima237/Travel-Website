@@ -8,11 +8,16 @@ urlpatterns = [
     path('login/', views.Login, name='login'),      
     path('register/', views.register, name='register'),
     path('contact/', views.contact_view, name='contact'),
+    path('contact_submit/', views.contact_submit, name='contact_submit'),
+    path('newsletter_subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
     path('packages/', views.packages_view, name='packages'),
     path('explore/', views.explore, name='explore'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path("booking/", views.booking, name="booking"),
+    path("my_bookings/", views.my_bookings, name="my_bookings"),
     path('profile/edit/', views.profile, name='profile'),
+    path('update_booking_status/<int:pk>/', views.update_booking_status, name='update_booking_status'),
+
 
 
 
