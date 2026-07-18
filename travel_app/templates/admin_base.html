@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" type="image" href="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}">
+    <title>{% block title %}Admin Dashboard{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: white;
+            height: 100vh;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: #00c8ff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            color: #555;
+            transition: 0.3s;
+            margin-bottom: 5px;
+            border-radius: 8px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .sidebar ul li i {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background: #00b7ff;
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 250px; /* offset for fixed sidebar */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 350px;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border-radius: 25px;
+            border: 1px solid #eee;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            transition: 0.3s;
+        }
+
+        .search-wrapper input:focus {
+            border-color: #00ffff;
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-info i {
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .profile-img-container {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Common table styles for all admin pages */
+        .table-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #00bbff;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>SEE THE WORLD</h2>
+            <ul>
+                <li class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                    <a href="{% url 'dashboard' %}"><i class="fa-solid fa-house"></i>Dashboard</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin_users' %}active{% endif %}">
+                    <a href="{% url 'admin_users' %}"><i class="fa-solid fa-users"></i>Users</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'my_bookings' %}active{% endif %}">
+                    <a href="{% url 'my_bookings' %}"><i class="fa-solid fa-clipboard-list"></i>Bookings</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin_revenue' %}active{% endif %}">
+                    <a href="{% url 'admin_revenue' %}"><i class="fa-solid fa-wallet"></i> Revenue</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin_locations' %}active{% endif %}">
+                    <a href="{% url 'admin_locations' %}"><i class="fa-solid fa-location-dot"></i>Tour Location</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin_reviews' %}active{% endif %}">
+                    <a href="{% url 'admin_reviews' %}"><i class="fa-solid fa-star"></i>Reviews</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin_settings' %}active{% endif %}">
+                    <a href="{% url 'admin_settings' %}"><i class="fa-solid fa-gear"></i>Settings</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <div class="user-profile">
+                    <div class="profile-info">
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+                    <a href="{% url 'profile' %}" class="profile-img-container" style="text-decoration: none;">
+                        {% if request.user.profile_pix %}
+                            <img src="{{ request.user.profile_pix.url }}" alt="Profile" class="profile-img">
+                        {% else %}
+                            <img src="{% static 'img/woman.png' %}" alt="Profile" class="profile-img">
+                        {% endif %}
+                    </a>
+                </div>
+            </header>
+
+            {% block main_content %}
+            {% endblock %}
+        </main>
+    </div>
+
+    {% block extra_js %}
+    {% endblock %}
+</body>
+
+</html>

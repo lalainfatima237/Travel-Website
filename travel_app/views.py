@@ -66,6 +66,12 @@ def packages_view(request):
 def explore(request):
     destinations = Destination.objects.all()
     return render(request, 'explore.html', {'destinations': destinations})
+from django.contrib.auth import logout as auth_logout
+
+def user_logout(request):
+    auth_logout(request)
+    return redirect('home')
+
 def Login(request):
     if request.method == "POST":
         u_email = request.POST.get('email')
@@ -102,24 +108,34 @@ from django.db.models import Count
 @login_required
 @staff_member_required
 def dashboard(request):
+    from datetime import timedelta
+    from django.utils import timezone
+    from django.db.models import Sum
+
     bookings_list = Booking.objects.all().order_by('id') 
     total_bookings = bookings_list.count()
     total_revenue = total_bookings * 500
     
-    total_users = total_bookings 
-    total_locations = Booking.objects.values('location').distinct().count()
+    total_users = User.objects.count() 
+    total_locations = Destination.objects.count()
 
-    # Chart data
-    bar_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    bar_data = [6, 2, 3, 1, 4, 5, 7] # Fallback data logic
+    # Dynamic Bar Chart Data (Revenue for the last 7 days)
+    today = timezone.now().date()
+    last_7_days = [today - timedelta(days=i) for i in range(6, -1, -1)]
+    bar_labels = [day.strftime('%a') for day in last_7_days]
+    bar_data = []
+    
+    for day in last_7_days:
+        daily_bookings = Booking.objects.filter(created_at__date=day).count()
+        bar_data.append(daily_bookings * 500) # 500 revenue per booking
     
     ongoing = bookings_list.filter(status='Ongoing').count()
     confirmed = bookings_list.filter(status='Confirmed').count()
     canceled = bookings_list.filter(status='Canceled').count()
     pending = bookings_list.filter(status='Pending').count()
     
-    doughnut_labels = ['Pending/Ongoing', 'Confirmed', 'Canceled']
-    doughnut_data = [ongoing + pending, confirmed, canceled]
+    doughnut_labels = ['Pending', 'Confirmed', 'Canceled', 'Ongoing']
+    doughnut_data = [pending, confirmed, canceled, ongoing]
 
     chart_data = {
         'bar_labels': bar_labels,
@@ -129,7 +145,7 @@ def dashboard(request):
     }
 
     context = {
-        'bookings': bookings_list,
+        'bookings': bookings_list[:5], # Show only recent 5 bookings in dashboard
         'total_bookings': total_bookings,
         'total_revenue': total_revenue,
         'total_users': total_users,
@@ -137,6 +153,46 @@ def dashboard(request):
         'chart_data': json.dumps(chart_data)
     }
     return render(request, 'dashboard.html', context)
+
+@login_required
+@staff_member_required
+def admin_users(request):
+    all_users = User.objects.all().order_by('-date_joined')
+    return render(request, 'admin_users.html', {'all_users': all_users})
+
+@login_required
+@staff_member_required
+def admin_revenue(request):
+    bookings_list = Booking.objects.all().order_by('-created_at')
+    
+    # Adding calculated revenue per booking (500 per booking as fallback logic)
+    for b in bookings_list:
+        b.revenue = 500 
+
+    total_revenue = bookings_list.count() * 500
+
+    context = {
+        'revenue_data': bookings_list,
+        'total_revenue': total_revenue
+    }
+    return render(request, 'admin_revenue.html', context)
+
+@login_required
+@staff_member_required
+def admin_locations(request):
+    destinations = Destination.objects.all()
+    return render(request, 'admin_locations.html', {'destinations': destinations})
+
+@login_required
+@staff_member_required
+def admin_reviews(request):
+    reviews = Review.objects.all().order_by('-created_at')
+    return render(request, 'admin_reviews.html', {'reviews': reviews})
+
+@login_required
+@staff_member_required
+def admin_settings(request):
+    return render(request, 'admin_settings.html')
 
 def booking(request):
     if request.method == "POST":

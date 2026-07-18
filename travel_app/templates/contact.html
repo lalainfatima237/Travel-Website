@@ -223,29 +223,7 @@
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <nav class="d-flex align-items-center justify-content-between">
-            <div class="logo">
-                <img src="{% static 'img/Eqz7Dy-travel-world-transparent-logo.png' %}" alt="Logo">
-            </div>  
-
-            <ul class="d-flex align-items-center mb-0">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#choose-place">Tours</a></li>
-                <li><a href="#top-destination">Destination</a></li>
-                <li><a href="#travel-blog">Gallery</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul> 
-
-            <div class="register-btn">
-                <a href="{% url 'login' %}" class="btn-login">Login</a>
-                <a href="{% url 'register' %}" class="btn-register">REGISTER</a>
-            </div> 
-        </nav>
-    </div>
-</header>
+    {% include 'partials/navbar.html' %}
 
 <div class="container my-3">
     <div class="text-center mb-3">

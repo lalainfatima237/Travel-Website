@@ -1,0 +1,33 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Admin - Tour Locations{% endblock %}
+
+{% block main_content %}
+<section class="table-section">
+    <h3>Tour Locations</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Location / Destination</th>
+                <th>Country</th>
+                <th>Total Tours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in destinations %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.name }}</td>
+                <td>{{ d.country }}</td>
+                <td>{{ d.tours.count }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center;">No locations found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

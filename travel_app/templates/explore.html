@@ -93,97 +93,196 @@
       color:#2095ae;
 }
 
-
-.location-section{
-    padding: 110px;
-    height: 100%;
+/* Modern styling for explore page */
+.location-section {
+    padding: 120px 5% 60px;
     min-height: 100vh;
+    background-color: #f8f9fa;
 }
-
-.location-heading h1{
-    margin-top: 20px;
-    font-size: 60px;
-    margin-bottom: 20px;
-}
-
-.location-heading h1 span{
-    color: #2095ae;
-}
-
-.location-detail h1{
-    padding-top: 60px;
-    color: #2095ae;
-    font-size: 40px;
-}
-
-.location-detail p{
-    font-size: 20px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-.location-img {
-    display: flex;
-    gap: 200px;
-    align-items: flex-start;
-    flex-wrap: wrap; 
-    justify-content: center;
-}
-.location-img img{
-    height: 600px;
-    width: 400px;
-    {% comment %} margin-top: 30px; {% endcomment %}
-    {% comment %} margin-bottom: 30px; {% endcomment %}
-    object-fit: cover;
-    border-radius: 10px;
-}
-.location-img h3 {
+.location-heading {
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 3rem;
+}
+.location-heading h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.location-heading h1 span {
+    color: var(--primary-green);
+}
+.location-heading p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.stars i{
-    font-size: 20px;
-    color: rgb(197, 167, 44);
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
 }
 
+.dest-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.dest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
 
+.dest-img-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+.dest-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.dest-card:hover .dest-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.dest-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dest-info {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dest-country {
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dest-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.dest-rating {
+    margin-bottom: 1rem;
+}
+.dest-rating i {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+.dest-desc {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.dest-action {
+    margin-top: auto;
+}
+
+.btn-book {
+    display: block;
+    text-align: center;
+    background: transparent;
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    padding: 10px 0;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .location-heading h1 {
+        font-size: 2.2rem;
+    }
+}
     </style>
 </head>
 <body>
+    {% include 'partials/navbar.html' %}
 <section class="location-section">
-    <div class="location-heading">
-        <h1>Discover The <span>Beautiful World</span></h1>
-    </div>
-    {% for d in destinations %}
-    <div class="location-detail" id="dest-{{ d.id }}">
-        <h1>{{ d.name }} - {{ d.country }}</h1>
-        <div class="stars">
-            <a href="#"><i class='bx bxs-star'></i></a>
-            <a href="#"><i class='bx bxs-star'></i></a>
-            <a href="#"><i class='bx bxs-star'></i></a>
-            <a href="#"><i class='bx bxs-star'></i></a>
-            <a href="#"><i class='bx bxs-star'></i></a>
+    <div class="container">
+        <div class="location-heading">
+            <h1>Discover The <span>Beautiful World</span></h1>
+            <p>Explore our carefully curated selection of the most breathtaking destinations across the globe.</p>
         </div>
-        <p>{{ d.description }}</p>
-        <div class="location-img">
-            <div class="img-box">
-                {% if d.image %}
-                <img src="{{ d.image.url }}" alt="{{ d.name }}">
-                {% else %}
-                <img src="{% static 'img/c1.jpg' %}" alt="Placeholder">
-                {% endif %}
-                <h3>{{ d.name }}</h3>
+        
+        <div class="destinations-grid">
+            {% for d in destinations %}
+            <div class="dest-card" id="dest-{{ d.id }}">
+                <div class="dest-img-wrapper">
+                    <div class="dest-badge"><i class="bi bi-geo-fill"></i> Top Choice</div>
+                    {% if d.image %}
+                    <img src="{{ d.image.url }}" alt="{{ d.name }}">
+                    {% else %}
+                    <img src="{% static 'img/c1.jpg' %}" alt="Placeholder">
+                    {% endif %}
+                </div>
+                <div class="dest-info">
+                    <div class="dest-country"><i class="bi bi-geo-alt-fill"></i> {{ d.country }}</div>
+                    <h3 class="dest-title">{{ d.name }}</h3>
+                    <div class="dest-rating">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                    <p class="dest-desc">{{ d.description }}</p>
+                    <div class="dest-action">
+                        <a href="{% url 'booking' %}?location={{ d.name }}" class="btn-book">Book This Tour</a>
+                    </div>
+                </div>
             </div>
+            {% empty %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 0;">
+                <h2 style="color: #666;">No destinations found.</h2>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% empty %}
-    <div class="location-detail">
-        <h1>No destinations found.</h1>
-    </div>
-    {% endfor %}
-
- 
-    </section>
+</section>
 <!-- Footer -->
 
     <footer class="footer">

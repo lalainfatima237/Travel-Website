@@ -1163,3 +1163,56 @@ select {
     line-height: 1.6;
     opacity: 0.8;
 }
+
+/* ------------------ RESPONSIVE STYLES ------------------- */
+
+@media (max-width: 1024px) {
+    .row-wise-img {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .static-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content-wrapper {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 2rem;
+    }
+    
+    .choose-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .row-wise-img {
+        grid-template-columns: 1fr;
+    }
+    
+    .static-wrapper {
+        grid-template-columns: 1fr;
+        grid-row-gap: 2rem;
+    }
+    
+    .travel-countries-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .title h2,
+    .title h3 {
+        font-size: 5vh;
+    }
+    
+    .headings {
+        font-size: 2rem;
+    }
+    
+    .secondary-headings {
+        font-size: 1.8rem;
+    }
+    
+    .lg-img {
+        height: 300px; /* Force consistent height on mobile */
+    }
+}

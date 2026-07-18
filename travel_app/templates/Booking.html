@@ -68,6 +68,7 @@
 </head>
 
 <body>
+    
     {% if messages %}
     <div id="message-container"
         style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 100%; max-width: 400px; padding: 0 20px;">
@@ -103,18 +104,22 @@
             if (msg) {
                 msg.style.transition = "opacity 0.5s ease";
                 msg.style.opacity = "0";
-                setTimeout(function () { msg.remove(); }, 500);
+                setTimeout(function () { 
+                    msg.remove(); 
+                    window.location.href = "{% url 'packages' %}";
+                }, 500);
             }
-        }, 5000); 
+        }, 3000); 
     </script>
     {% endif %}
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="btn btn-light position-absolute top-0 start-0 m-4 shadow" style="border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; z-index: 1000; transition: 0.3s;">
+        <i class="fa fa-arrow-left text-info fs-5"></i>
+    </a>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
-                <div class="card booking-card p-4 position-relative">
-                    <a href="javascript:history.back()" class="text-secondary position-absolute" style="top: 20px; left: 20px; font-size: 1.5rem; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#00c8ffb8'" onmouseout="this.style.color='#6c757d'">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
+                <div class="card booking-card p-4">
                     <div class="text-center mb-4">
                         <h2 class="fw-bold text-info">Book Your Trip</h2>
                         <p class="text-muted">Explore the world with Travelverse</p>
@@ -152,8 +157,8 @@
                             <label class="form-label">Select Package</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-box text-muted"></i></span>
-                                <select name="package" class="form-select" required>
-                                    <option value="" disabled {% if not selected_package %}selected{% endif %}>Select Package</option>
+                                <select name="package" class="form-select">
+                                    <option value="" {% if not selected_package %}selected{% endif %}>No Package / Custom</option>
                                     <option value="Bronze" {% if selected_package == 'Bronze' %}selected{% endif %}>Bronze (Rs.9,999/-)</option>
                                     <option value="Silver" {% if selected_package == 'Silver' %}selected{% endif %}>Silver (Rs.19,999/-)</option>
                                     <option value="Gold" {% if selected_package == 'Gold' %}selected{% endif %}>Gold (Rs.29,999/-)</option>
