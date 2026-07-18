@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path('login/', views.Login, name='login'),      
+    path('login/', views.Login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
     path('register/', views.register, name='register'),
     path('contact/', views.contact_view, name='contact'),
     path('contact_submit/', views.contact_submit, name='contact_submit'),
@@ -17,7 +18,11 @@ urlpatterns = [
     path("my_bookings/", views.my_bookings, name="my_bookings"),
     path('profile/edit/', views.profile, name='profile'),
     path('update_booking_status/<int:pk>/', views.update_booking_status, name='update_booking_status'),
-
+    path('admin_users/', views.admin_users, name='admin_users'),
+    path('admin_revenue/', views.admin_revenue, name='admin_revenue'),
+    path('admin_locations/', views.admin_locations, name='admin_locations'),
+    path('admin_reviews/', views.admin_reviews, name='admin_reviews'),
+    path('admin_settings/', views.admin_settings, name='admin_settings'),
 
 
 
